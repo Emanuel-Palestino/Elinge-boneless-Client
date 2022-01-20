@@ -1,0 +1,21 @@
+:root {
+	--bg-color: #c11010;
+	--bg-color-2: #f81515;
+}
+
+#barra_navegacion {
+	padding-left: 20px;
+	padding-right: 20px;
+	background-color: #c11010;
+}
+
+#barra_navegacion::before {
+	content: '';
+	display: block;
+	position: absolute;
+	width: 50%;
+	height: 100%;
+	margin-left: -80px;
+	background-color: #f81515;
+	transform: skewX(-60deg);
+}
