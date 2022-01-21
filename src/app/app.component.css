@@ -33,3 +33,11 @@
 	background-color: coral;
 	border-radius: 0 0 400px 0;
 }
+
+section:not(:nth-child(1)) {
+	margin-top: 40px;
+}
+
+.modal.bottom-sheet {
+	max-height: 70%;
+}

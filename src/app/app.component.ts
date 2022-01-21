@@ -8,12 +8,15 @@ declare var $: any
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'client';
-
 
   ngOnInit() {
     $(document).ready(function () {
-      $('.modal').modal();
+      $('.modal').modal()
+      $('.carousel').carousel()
+      $('.carousel.carousel-slider').carousel({
+        fullWidth: true,
+        indicators: true
+      });
     });
   }
 
