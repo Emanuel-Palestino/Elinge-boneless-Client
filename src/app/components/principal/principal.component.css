@@ -1,0 +1,43 @@
+#circulo {
+	width: 500px;
+	height: 500px;
+	margin: 0 auto;
+}
+
+#circulo .cuarto {
+	height: 50%;
+	cursor: pointer;
+	transition: all 200ms;
+}
+
+#circulo .cuarto:hover {
+	transform: scale(1.2);
+}
+
+#circulo .cuarto:nth-child(1) {
+	background-color: aqua;
+	border-radius: 400px 0 0 0;
+}
+
+#circulo .cuarto:nth-child(2) {
+	background-color: aquamarine;
+	border-radius: 0 400px 0 0;
+}
+
+#circulo .cuarto:nth-child(3) {
+	background-color: cadetblue;
+	border-radius: 0 0 0 400px;
+}
+
+#circulo .cuarto:nth-child(4) {
+	background-color: coral;
+	border-radius: 0 0 400px 0;
+}
+
+section:not(:nth-child(1)) {
+	margin-top: 40px;
+}
+
+.modal.bottom-sheet {
+	max-height: 70%;
+}
