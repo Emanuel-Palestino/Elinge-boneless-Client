@@ -7,7 +7,8 @@ export class Direccion{
     referencia: string;
     idCliente:number;
 
-    constructor(){
+    constructor()
+    {
         this.idDireccion=0;
         this.colonia='';
         this.calle='';

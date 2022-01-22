@@ -1,4 +1,4 @@
-export class ClienteLogin{ 
+export class ClienteRegistro{ 
     nombre: string;
     apellidos: string;
     telefono: string;
@@ -8,11 +8,11 @@ export class ClienteLogin{
     
     constructor()
     {
-    this.nombre='';
-    this.apellidos='';
-    this.telefono='';
-    this.correo='';
-    this.contraseña='';
-    this.sexo='';
+        this.nombre='';
+        this.apellidos='';
+        this.telefono='';
+        this.correo='';
+        this.contraseña='';
+        this.sexo='';
     }
 }

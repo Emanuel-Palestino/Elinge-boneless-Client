@@ -6,14 +6,15 @@ export class Cliente{
     correo: string;
     contraseña: string;
     sexo: string;
-    
-    constructor(){
-    this.idCliente=0;
-    this.nombre='';
-    this.apellidos='';
-    this.telefono='';
-    this.correo='';
-    this.contraseña='';
-    this.sexo='';
+
+    constructor()
+    {
+        this.idCliente=0;
+        this.nombre='';
+        this.apellidos='';
+        this.telefono='';
+        this.correo='';
+        this.contraseña='';
+        this.sexo='';
     }
 }
