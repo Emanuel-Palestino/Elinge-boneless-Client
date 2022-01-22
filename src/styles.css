@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+	font-family: 'Overpass', sans-serif;
+}
+
+h3, h2 {
+	font-family: 'Antonio', sans-serif;
+}
