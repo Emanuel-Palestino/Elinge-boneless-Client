@@ -20,12 +20,31 @@
 }
 
 #barra_navegacion > a {
-	height: 64px;
+	height: 56px;
 	overflow: hidden;
 }
 
 #barra_navegacion img {
-	height: 68px;
+	height: 60px;
 	margin-top: -2px;
 	margin-left: -2px;
+}
+
+.sidenav{
+	padding-top: 12px;
+}
+
+.sidenav li > a:hover {
+	background-color: rgba(248, 21, 21, 0.3);
+}
+
+/* Pantalla pequeña */
+@media only screen and (min-width: 601px) {
+	#barra_navegacion img {
+		height: 68px;
+	}
+
+	#barra_navegacion > a {
+		height: 64px;
+	}
 }
