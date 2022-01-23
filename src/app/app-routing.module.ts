@@ -8,7 +8,7 @@ const routes: Routes = [
     component: PrincipalComponent
   },
   {
-    path: "registrarse",
+    path: "registro",
     component: RegistroComponent
   }
 ];
