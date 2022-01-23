@@ -1,122 +1,101 @@
-<div class="bodyRegistro">
-    <div class="container">
+<div class="container row">
+    <div class="col s12 m12 l6 offset-l3">
+        <h2 class="center-align">Registro de Nuevo Usuario</h2>
+
         <div class="row">
-            <div class="col s12 m12 l8 offset-l2 registroDiv">
-                <div class="row registroContainer ">
+            <!-- DATOS PERSONALES-->
+            <h6 class="center-align">Datos Personales</h6>
 
-                    <div class="center col s12 m5 l7 offset-l1 offset-m1">
-                        <div class="registroTitulo">
-                            <h2>Registro</h2>
-                            <b></b><b></b><b></b><b></b>
-                            <h5>Nuevo Ususario</h5>
-                            <b></b><b></b><b></b><b><b><b><b><b><b></b></b></b></b></b></b>
-                            <h6>Datos Personales</h6>
-                            <b></b><b></b>
-                        </div>
-                        <div class="row">
+            <div class="col s12 customInput">
+                <input class="browser-default " type="text" name="nombre" id="nombres" placeholder="Nombre(s)"
+                    autocomplete="off">
+                <i class="material-icons prefix">person</i>
+            </div>
 
-                            <div class="left col s12 customInput">
-                                <div class="left">
-                                    <i class="left material-icons prefix">person</i>
-                                    <input class="browser-default " type="text" name="nombre" id="nombres"
-                                        placeholder="Nombre(s)" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="left col s12 customInput">
-                                <div class="left">
-                                    <i class="material-icons prefix">person</i>
-                                    <input class="browser-default" type="text" name="apellidoP" id="apellidoP"
-                                        placeholder="Apellido paterno" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">person</i>
-                                <input class="browser-default" type="text" name="apellidoM" id="apellidoM"
-                                    placeholder="Apellido materno" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">phone</i>
-                                <input class="browser-default" type="tel" name="telefono" id="telefono" placeholder="telefono"
-                                    autocomplete="off">
-                                </div>
-                            </div>
+            <div class="col s12 customInput">
+                <input class="browser-default" type="text" name="apellidoP" id="apellidoP"
+                    placeholder="Apellido paterno" autocomplete="off">
+                <i class="material-icons prefix">person</i>
+            </div>
 
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">email</i>
-                                <input class="browser-default" type="email" name="email" id="email" placeholder="correo"
-                                    autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">vpn_key</i>
-                                <input class="browser-default" type="password" name="password" id="password"
-                                    placeholder="Contraseña" autocomplete="off">
-                                </div>
-                            </div>
-                            <form>
-                                <div class="clearfix"></div>
-                                <p>
-                                    Genero
-                                </p>
-                                    <label>
-                                        <input type="radio" name="opcion" checked="checked" class="with-gap">
-                                        <span> Masculino</span>
-                                    </label>
-                                    <label>
-                                        <input type="radio" name="opcion" checked="checked" class="with-gap">
-                                        <span> Femenino</span>
-                                    </label>
-                            </form>
-                            <p></p><p></p>
-                            <h6>Direccion Personal</h6>
-                            <b></b><b></b>
-                          
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">add_location</i>
-                                <input class="browser-default" type="text" name="calle" id="calle"
-                                    placeholder="Calle" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col s6 customInput">
-                                <i class="material-icons prefix">markunread_mailbox</i>
-                                <input class="browser-default" type="int" name="NimI" id="NimI"
-                                    placeholder="Numero Interior" autocomplete="off">
-                            </div>
-                            <div class="col s6 customInput">
-                                <i class="material-icons prefix">markunread_mailbox</i>
-                                <input class="browser-default" type="int" name="NimE" id="NimE"
-                                    placeholder="Numero Exterior" autocomplete="off">
-                            </div>
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">location_on</i>
-                                <input class="browser-default" type="text" name="col" id="col"
-                                    placeholder="Colonia" autocomplete="off">
-                                </div>
-                            </div>
-                            <div class="col s12 customInput">
-                                <div class="left">
-                                <i class="material-icons prefix">map</i>
-                                <input class="browser-default" type="text" name="Referancias" id="Referancias"
-                                    placeholder="Referancias" autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <button class="btn col l12 s12 m12 btnRegistro ">
-                                REGISTRARSE
-                            </button>
-                        </div>
-                    </div>
+            <div class="col s12 customInput">
+                <input class="browser-default" type="text" name="apellidoM" id="apellidoM"
+                    placeholder="Apellido materno" autocomplete="off">
+                <i class="material-icons prefix">person</i>
+            </div>
+
+            <div class="col s12 customInput">
+                <input class="browser-default" type="tel" name="telefono" id="telefono" placeholder="telefono"
+                    autocomplete="off">
+                <i class="material-icons prefix">phone</i>
+            </div>
+
+            <div class="col s12 customInput">
+                <input class="browser-default" type="email" name="email" id="email" placeholder="correo"
+                    autocomplete="off">
+                <i class="material-icons prefix">email</i>
+            </div>
+
+            <div class="col s12 customInput">
+                <input class="browser-default" type="password" name="password" id="password" placeholder="Contraseña"
+                    autocomplete="off">
+                <i class="material-icons prefix">vpn_key</i>
+            </div>
+
+            <form class="row">
+                <div class="col l4 m4 s12">
+                    <h6 for="">Género:</h6>
                 </div>
+
+                <div class="col l4 m4 s6 customCheck">
+                    <label>
+                        <input type="radio" name="opcion">
+                        <span>Hombre</span>
+                    </label>
+                </div>
+
+                <div class="col l4 m4 s6 customCheck">
+                    <label>
+                        <input type="radio" name="opcion">
+                        <span>Mujer</span>
+                    </label>
+                </div>
+            </form>
+
+            <!-- DATOS DE DIRECCION -->
+            <h6 class="center-align">Direccion De Entrega</h6>
+
+            <div class="col s12 customInput">
+                <input class="browser-default" type="text" name="calle" id="calle" placeholder="Calle"
+                    autocomplete="off">
+                <i class="material-icons prefix">add_location</i>
+            </div>
+
+            <div class="col s6 customInput">
+                <input class="browser-default" type="int" name="NimI" id="NimI" placeholder="Numero Interior"
+                    autocomplete="off">
+                <i class="material-icons prefix">markunread_mailbox</i>
+            </div>
+
+            <div class="col s6 customInput">
+                <input class="browser-default" type="int" name="NimE" id="NimE" placeholder="Numero Exterior"
+                    autocomplete="off">
+                <i class="material-icons prefix">markunread_mailbox</i>
+            </div>
+
+            <div class="col s12 customInput">
+                <input class="browser-default" type="text" name="col" id="col" placeholder="Colonia" autocomplete="off">
+                <i class="material-icons prefix">location_on</i>
+            </div>
+
+            <div class="col s12 customTextArea">
+                <textarea id="referencias" cols="30" rows="5" placeholder="Referencias"></textarea>
+                <i class="material-icons prefix">map</i>
             </div>
         </div>
+
+        <button class="btn waves-dark waves-effect col l12 m8 offset-m2 s12 btnRegistro ">
+            REGISTRARSE
+        </button>
     </div>
 </div>
-
