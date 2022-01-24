@@ -1,16 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { BarraNavegacionComponent } from './components/barra-navegacion/barra-navegacion.component';
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
+import { PrincipalComponent } from './components/principal/principal.component';
+import { RegistroComponent } from './components/registro/registro.component';
 
 const routes: Routes = [
   {
-    path: "navegacion",
-    component: BarraNavegacionComponent
+    path: "",
+    component: PrincipalComponent
   },
   {
     path: "inicio-sesion",
     component: InicioSesionComponent
+  },
+  {
+    path: "registrarse",
+    component: RegistroComponent
   }
 ];
 
