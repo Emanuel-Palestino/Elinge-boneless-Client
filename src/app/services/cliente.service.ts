@@ -3,7 +3,7 @@ import {HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
-
+import { map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,17 +13,20 @@ export class ClienteService {
   constructor(private http: HttpClient) {
    }
 
+  //recibir modelos de registroUsuario y Direccion 
   registrarCliente(cliente: ClienteRegistro , direccion: Direccion){
-    //recibir lo ingresado en el formulario sale de 
-    //llamado a la api de registrar cliente pasar datos del modelo cliente, regresa datos en JSON
-    //agregar a modelo de direccion 
-    //enviar api de registrar direccion
+
+                           
+    //llamado a la Api "ingresarCliente" inserccion de los datos de Registro                                 
+    var Respuesta = this.http.post(`${environment.API_URI}/realizarPedido`, cliente);
 
 
-    //recibir modelos de registroUsuario y Direccion
-    //llamado a la Api "ingresarCliente" inserccion de los datos de Registro
-    //pasar los datos de respuesta en el JSON
+    //asignar a direccion el ID de la peticion anterior
+    direccion.idCliente = Respuesta;
+
     //A partir de ID, enviar a API ingresarDireccion 
+    this.http.post(`${environment.API_URI}/direcciones/crear`, direccion);
+    
 
     
 
