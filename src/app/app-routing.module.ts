@@ -10,7 +10,7 @@ const routes: Routes = [
     component: PrincipalComponent
   },
   {
-    path: "inicio-sesion",
+    path: "ingresar",
     component: InicioSesionComponent
   },
   {
