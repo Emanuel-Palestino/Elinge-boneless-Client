@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BarraNavegacionComponent } from './components/barra-navegacion/barra-navegacion.component';
+import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.component';
@@ -12,6 +13,7 @@ import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.c
   declarations: [
     AppComponent,
     BarraNavegacionComponent,
+    InicioSesionComponent,
     RegistroComponent,
     PrincipalComponent,
     PieDePaginaComponent,
