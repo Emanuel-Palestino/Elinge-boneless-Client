@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BarraNavegacionComponent } from './components/barra-navegacion/barra-navegacion.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { PrincipalComponent } from './components/principal/principal.component';
+import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.component';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
     BarraNavegacionComponent,
     RegistroComponent,
     PrincipalComponent,
+    PieDePaginaComponent,
   ],
   imports: [
     BrowserModule,

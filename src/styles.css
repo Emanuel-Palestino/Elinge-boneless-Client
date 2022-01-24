@@ -4,6 +4,10 @@
 	font-family: 'Overpass', sans-serif;
 }
 
+a {
+	color: inherit;
+}
+
 h3, h2 {
 	font-family: 'Antonio', sans-serif;
 }
