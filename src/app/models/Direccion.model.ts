@@ -1,5 +1,4 @@
 export class Direccion {
-    idDireccion: number;
     colonia: string;
     calle: string;
     numeroExterior: number;
@@ -8,7 +7,7 @@ export class Direccion {
     idCliente: number;
 
     constructor() {
-        this.idDireccion = 0;
+        this.idCliente = 0;
         this.colonia = '';
         this.calle = '';
         this.numeroExterior = 0;

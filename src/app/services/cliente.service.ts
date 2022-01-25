@@ -3,7 +3,7 @@ import {HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
-import { map } from 'rxjs';
+import { __assign } from 'tslib';
 
 @Injectable({
   providedIn: 'root'
@@ -15,20 +15,19 @@ export class ClienteService {
 
   //recibir modelos de registroUsuario y Direccion 
   registrarCliente(cliente: ClienteRegistro , direccion: Direccion){
+    var Respuesta = this.http.post(`${environment.API_URI}/clientes/crear`, cliente).toPromise();
 
-                           
-    //llamado a la Api "ingresarCliente" inserccion de los datos de Registro                                 
-    var Respuesta = this.http.post(`${environment.API_URI}/realizarPedido`, cliente);
+    Respuesta.then((data: any) => {
+      console.log(data)
+      direccion.idCliente = data.insertId;
+      return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion); 
 
-
-    //asignar a direccion el ID de la peticion anterior
-    direccion.idCliente = Respuesta;
-
-    //A partir de ID, enviar a API ingresarDireccion 
-    this.http.post(`${environment.API_URI}/direcciones/crear`, direccion);
+    }).catch(error => {
+      console.error(error)
+    })
+    console.log(direccion)
     
 
     
-
   }
 }

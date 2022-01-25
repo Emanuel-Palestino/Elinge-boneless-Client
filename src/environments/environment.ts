@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  API_URI: "https://elinge-boneless.com/"
+  API_URI: "https://elinge-boneless.com/api"
 };
 
 /*
