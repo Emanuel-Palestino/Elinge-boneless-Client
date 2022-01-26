@@ -1,5 +1,6 @@
 #circulo {
-	width: 500px;
+	width: auto;
+	max-width: 500px;
 	height: 500px;
 	margin: 0 auto;
 }
