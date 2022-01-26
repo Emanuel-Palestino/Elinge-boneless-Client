@@ -1,94 +1,31 @@
 <app-barra-navegacion></app-barra-navegacion>
-<div class="inicar-sesion-pagina center-align">
+<div class="container row">
+	<div class="col s12 m12 l8 offset-l2">
+		<h2 class="center-align">Iniciar Sesión</h2>
 
-
-
-	<div class="row">
-		<div class="col s12 m4 l2"></div>
-		<div class="col s12 m4 l8">
-
-			<!--Titulo de la página-->
-			<div class="container">
-				<div class="center-align Titulo">
-					<h2>INICIAR SESIÓN</h2>
+		<div class="row">
+			<form>
+				<div class="col s12">
+					<h6 class="center-align">Correo:</h6>
 				</div>
-			</div>
-
-			<!--Formulario de Inicio de Sesión-->
-			<div class="card contenidoInput">
-				<div class="card-content">
-					<div class="container center-align contenidoTable">
-						<table class="">
-							<tr>
-								<td class="textos"><h6 for="correo">Correo: </h6></td>
-								<td><input class="browser-default" type="email" name="correo" autocomplete="off"
-										id="correo"></td>
-							</tr>
-							<tr>
-								<td class="textos"><h6 for="password">Contraseña: </h6></td>
-								<td><input class="browser-default" type="password" name="password" autocomplete="off"
-										id="password"></td>
-							</tr>
-						</table> <br> 
-
-						<div class="form-field center-align">
-							<button class="btn waves-effect waves-light red darken-2 hoverable" id="botonIniciarS">Iniciar Sesión</button>
-						</div><br><br>
-
-						<div class="container center-align ">
-							<a href="" id="registro">Soy nuevo usuario</a>
-						</div>
-
-					</div>
+				<div class="col s12 customInput">
+					<input type="email" name="correo" class="browser-default" autocomplete="off" placeholder="Correo">
+					<i class="material-icons prefix">alternate_email</i>
 				</div>
-			</div>
 
-			<!--Imagenes Inferiores de la pagina-->
+				<div class="col s12">
+					<h6 class="center-align">Contraseña:</h6>
+				</div>
+				<div class="col s12 customInput">
+					<input type="password" name="contraseña" class="browser-default" autocomplete="off"
+						placeholder="Contraseña">
+					<i class="material-icons prefix">password</i>
+				</div>
 
-			<div class="slider" id="Fotos">
-				<ul class="slides">
-				  <li>
-					<img src="https://ximg.es/1080x1080.jpg"> <!-- random image -->
-					<div class="caption center-align">
-					  <h3>El INGE</h3>
-					  <h5 class="light white-text text-lighten-3">Boneless</h5>
-					</div>
-				  </li>
-				  <li>
-					<img src="https://ximg.es/1080x1080.jpg"> <!-- random image -->
-					<div class="caption left-align">
-					  <h3>Servicio a domicilio sin costo</h3>
-					  <h5 class="light grey-text text-lighten-3">Viernes, sábado y domingo</h5>
-					</div>
-				  </li>
-				  <li>
-					<img src="https://ximg.es/1080x1080.jpg"> <!-- random image -->
-					<div class="caption right-align">
-					  <h3>Pedidos</h3>
-					  <h5 class="light grey-text text-lighten-3">10:00am - 4:00pm </h5>
-					  <h5 class="light white-text text-lighten-3">9532139898</h5>
-					</div>
-				  </li>
-				  <li>
-					<img src="https://ximg.es/1080x1080.jpg"> <!-- random image -->
-					<div class="caption center-align">
-					  <h3>Entregas a domicilio</h3>
-					  <h5 class="light grey-text text-lighten-3">5:00 - 9:00 pm</h5>
-					</div>
-				  </li>
-				  <li>
-					<img src="https://ximg.es/1080x1080.jpg"> <!-- random image -->
-					<div class="caption left-align">
-					  <h3>Síguenos en instagram</h3>
-					  <h5 class="light white-text text-lighten-3">@boneless.el.inge</h5>
-					</div>
-				  </li>
-				</ul>
-			  </div>
-				  
-
+				<input type="submit" class="btn col l12 m8 offset-m2 s12 btnRegistro"
+					value="INICIAR SESIÓN">
+			</form>
 		</div>
-		<div class="col s12 m4 l2"></div>
 	</div>
 </div>
 <app-pie-de-pagina></app-pie-de-pagina>
