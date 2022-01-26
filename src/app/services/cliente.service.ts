@@ -17,15 +17,14 @@ export class ClienteService {
   registrarCliente(cliente: ClienteRegistro , direccion: Direccion){
     var Respuesta = this.http.post(`${environment.API_URI}/clientes/crear`, cliente).toPromise();
 
-    Respuesta.then((data: any) => {
-      console.log(data)
+    Respuesta.then(async (data: any) => {
       direccion.idCliente = data.insertId;
-      return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion); 
+
+      await this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise(); 
 
     }).catch(error => {
       console.error(error)
     })
-    console.log(direccion)
     
 
     
