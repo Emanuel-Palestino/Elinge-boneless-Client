@@ -10,6 +10,8 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { ClientesComponent } from './components/clientes/clientes.component';
+import { ResumenComponent } from './components/resumen/resumen.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { FormsModule } from '@angular/forms';
     RegistroComponent,
     PrincipalComponent,
     PieDePaginaComponent,
+    ClientesComponent,
+    ResumenComponent,
   ],
   imports: [
     BrowserModule,
