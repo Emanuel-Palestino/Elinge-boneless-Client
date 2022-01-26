@@ -8,6 +8,8 @@ import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.
 import { RegistroComponent } from './components/registro/registro.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { PieDePaginaComponent } from './components/pie-de-pagina/pie-de-pagina.c
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

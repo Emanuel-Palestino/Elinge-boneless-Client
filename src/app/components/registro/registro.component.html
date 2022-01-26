@@ -7,13 +7,13 @@
             <h6 class="center-align">Datos Personales</h6>
 
             <div class="col s12 customInput">
-                <input class="browser-default " type="text" name="nombre" id="nombres" placeholder="Nombre(s)"
+                <input [(ngModel)] = "cliente.nombre" class="browser-default " type="text" name="nombre" id="nombres" placeholder="Nombre(s)"
                     autocomplete="off">
                 <i class="material-icons prefix">person</i>
             </div>
 
             <div class="col s12 customInput">
-                <input class="browser-default" type="text" name="apellidoP" id="apellidoP"
+                <input [(ngModel)] = "cliente.apellidos" class="browser-default" type="text" name="apellidoP" id="apellidoP"
                     placeholder="Apellido paterno" autocomplete="off">
                 <i class="material-icons prefix">person</i>
             </div>
@@ -25,13 +25,13 @@
             </div>
 
             <div class="col s12 customInput">
-                <input class="browser-default" type="tel" name="telefono" id="telefono" placeholder="telefono"
+                <input [(ngModel)] = "cliente.telefono" class="browser-default" type="tel" name="telefono" id="telefono" placeholder="telefono"
                     autocomplete="off">
                 <i class="material-icons prefix">phone</i>
             </div>
 
             <div class="col s12 customInput">
-                <input class="browser-default" type="email" name="email" id="email" placeholder="correo"
+                <input [(ngModel)] = "cliente.correo" class="browser-default" type="email" name="email" id="email" placeholder="correo"
                     autocomplete="off">
                 <i class="material-icons prefix">email</i>
             </div>
@@ -49,14 +49,14 @@
 
                 <div class="col l4 m4 s6 customCheck">
                     <label>
-                        <input type="radio" name="opcion">
+                        <input type="radio" name="H">
                         <span>Hombre</span>
                     </label>
                 </div>
 
                 <div class="col l4 m4 s6 customCheck">
                     <label>
-                        <input type="radio" name="opcion">
+                        <input type="radio" name="M">
                         <span>Mujer</span>
                     </label>
                 </div>
@@ -66,25 +66,25 @@
             <h6 class="center-align">Direccion De Entrega</h6>
 
             <div class="col s12 customInput">
-                <input class="browser-default" type="text" name="calle" id="calle" placeholder="Calle"
+                <input [(ngModel)] = "direccion.calle" class="browser-default" type="text" name="calle" id="calle" placeholder="Calle"
                     autocomplete="off">
                 <i class="material-icons prefix">add_location</i>
             </div>
 
             <div class="col s6 customInput">
-                <input class="browser-default" type="int" name="NimI" id="NimI" placeholder="Numero Interior"
+                <input [(ngModel)] = "direccion.numeroInterior" class="browser-default" type="int" name="NimI" id="NimI" placeholder="Numero Interior"
                     autocomplete="off">
                 <i class="material-icons prefix">markunread_mailbox</i>
             </div>
 
             <div class="col s6 customInput">
-                <input class="browser-default" type="int" name="NimE" id="NimE" placeholder="Numero Exterior"
+                <input [(ngModel)] = "direccion.numeroExterior" class="browser-default" type="int" name="NimE" id="NimE" placeholder="Numero Exterior"
                     autocomplete="off">
                 <i class="material-icons prefix">markunread_mailbox</i>
             </div>
 
             <div class="col s12 customInput">
-                <input class="browser-default" type="text" name="col" id="col" placeholder="Colonia" autocomplete="off">
+                <input [(ngModel)] = "direccion.colonia"  class="browser-default" type="text" name="col" id="col" placeholder="Colonia" autocomplete="off">
                 <i class="material-icons prefix">location_on</i>
             </div>
 
@@ -94,7 +94,7 @@
             </div>
         </div>
 
-        <button class="btn waves-dark waves-effect col l12 m8 offset-m2 s12 btnRegistro ">
+        <button (click)="registrarse()" class="btn waves-dark waves-effect col l12 m8 offset-m2 s12 btnRegistro ">
             REGISTRARSE
         </button>
     </div>

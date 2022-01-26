@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ClienteService } from 'src/app/services/cliente.service';
+import { ClienteRegistro } from 'src/app/models/ClienteRegistro.model';
+import { Direccion } from 'src/app/models/Direccion.model';
 
 @Component({
   selector: 'app-registro',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegistroComponent implements OnInit {
 
-  constructor() { }
+  cliente: ClienteRegistro;
+  direccion: Direccion;
+
+  constructor(private servicioCliente: ClienteService) {
+    this.cliente = new ClienteRegistro();
+    this.direccion = new Direccion();
+   }
 
   ngOnInit(): void {
+  }
+
+  registrarse(): void{
+    this.servicioCliente.registrarCliente(this.cliente,this.direccion)
   }
 
 }
