@@ -3,7 +3,7 @@ export class ClienteRegistro {
     apellidos: string;
     telefono: string;
     correo: string;
-    contraseña: string;
+    password: string;
     sexo: string;
 
     constructor() {
@@ -11,7 +11,7 @@ export class ClienteRegistro {
         this.apellidos = '';
         this.telefono = '';
         this.correo = '';
-        this.contraseña = '';
+        this.password = '';
         this.sexo = '';
     }
 }

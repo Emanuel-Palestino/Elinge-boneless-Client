@@ -1,101 +1,102 @@
+<app-barra-navegacion></app-barra-navegacion>
 <div class="container row">
     <div class="col s12 m12 l6 offset-l3">
         <h2 class="center-align">Registro de Nuevo Usuario</h2>
 
         <div class="row">
             <!-- DATOS PERSONALES-->
-            <h6 class="center-align">Datos Personales</h6>
+            <form action="">
+                <h6 class="center-align">Datos Personales</h6>
 
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "cliente.nombre" class="browser-default " type="text" name="nombre" id="nombres" placeholder="Nombre(s)"
-                    autocomplete="off">
-                <i class="material-icons prefix">person</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "cliente.apellidos" class="browser-default" type="text" name="apellidoP" id="apellidoP"
-                    placeholder="Apellido paterno" autocomplete="off">
-                <i class="material-icons prefix">person</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input class="browser-default" type="text" name="apellidoM" id="apellidoM"
-                    placeholder="Apellido materno" autocomplete="off">
-                <i class="material-icons prefix">person</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "cliente.telefono" class="browser-default" type="tel" name="telefono" id="telefono" placeholder="telefono"
-                    autocomplete="off">
-                <i class="material-icons prefix">phone</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "cliente.correo" class="browser-default" type="email" name="email" id="email" placeholder="correo"
-                    autocomplete="off">
-                <i class="material-icons prefix">email</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input class="browser-default" type="password" name="password" id="password" placeholder="Contraseña"
-                    autocomplete="off">
-                <i class="material-icons prefix">vpn_key</i>
-            </div>
-
-            <form class="row">
-                <div class="col l4 m4 s12">
-                    <h6 for="">Género:</h6>
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="cliente.nombre" class="browser-default" type="text" name="nombres"
+                        placeholder="Nombre(s)" autocomplete="off">
+                    <i class="material-icons prefix">person</i>
                 </div>
 
-                <div class="col l4 m4 s6 customCheck">
-                    <label>
-                        <input type="radio" name="H">
-                        <span>Hombre</span>
-                    </label>
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="cliente.apellidos" class="browser-default" type="text" name="apellidos"
+                        placeholder="Apellidos" autocomplete="off">
+                    <i class="material-icons prefix">person</i>
                 </div>
 
-                <div class="col l4 m4 s6 customCheck">
-                    <label>
-                        <input type="radio" name="M">
-                        <span>Mujer</span>
-                    </label>
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="cliente.telefono" class="browser-default" type="tel" name="telefono"
+                        placeholder="Teléfono" autocomplete="off">
+                    <i class="material-icons prefix">smartphone</i>
                 </div>
+
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="cliente.correo" class="browser-default" type="email" name="correo"
+                        placeholder="Correo" autocomplete="off">
+                    <i class="material-icons prefix">alternate_email</i>
+                </div>
+
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="cliente.password" class="browser-default" type="password" name="password"
+                        placeholder="Contraseña" autocomplete="off">
+                    <i class="material-icons prefix">password</i>
+                </div>
+
+                <div class="row">
+                    <div class="col l4 m4 s12">
+                        <h6 for="">Género:</h6>
+                    </div>
+
+                    <div class="col l4 m4 s6 customCheck">
+                        <label>
+                            <input [(ngModel)]="cliente.sexo" type="radio" name="genero" value="H">
+                            <span>Hombre</span>
+                        </label>
+                    </div>
+
+                    <div class="col l4 m4 s6 customCheck">
+                        <label>
+                            <input [(ngModel)]="cliente.sexo" type="radio" name="genero" value="M">
+                            <span>Mujer</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- DATOS DE DIRECCION -->
+                <h6 class="center-align">Direccion De Entrega</h6>
+
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="direccion.calle" class="browser-default" type="text" name="calle"
+                        placeholder="Calle" autocomplete="off">
+                    <i class="material-icons prefix">location_on</i>
+                </div>
+
+                <div class="col s6 customInput">
+                    <input [(ngModel)]="direccion.numeroExterior" class="browser-default" type="number" name="numeroExterior"
+                        placeholder="Num. Exterior" autocomplete="off">
+                    <i class="material-icons prefix">tag</i>
+                </div>
+
+                <div class="col s6 customInput">
+                    <input [(ngModel)]="direccion.numeroInterior" class="browser-default" type="number" name="numreoInterior"
+                        placeholder="Num. Interior" autocomplete="off">
+                    <i class="material-icons prefix">tag</i>
+                </div>
+
+                <div class="col s12 customInput">
+                    <input [(ngModel)]="direccion.colonia" class="browser-default" type="text" name="col" id="col"
+                        placeholder="Colonia" autocomplete="off">
+                    <i class="material-icons prefix">explore</i>
+                </div>
+
+                <div class="col s12 customTextArea">
+                    <textarea [(ngModel)]="direccion.referencia" name="referencias" cols="30" rows="5" placeholder="Referencias"></textarea>
+                    <i class="material-icons prefix">map</i>
+                </div>
+
+
+                <input (click)="registrarse()" type="submit" class="btn col l12 m8 offset-m2 s12 btnRegistro"
+                    value="REGISTRARSE">
+
             </form>
 
-            <!-- DATOS DE DIRECCION -->
-            <h6 class="center-align">Direccion De Entrega</h6>
-
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "direccion.calle" class="browser-default" type="text" name="calle" id="calle" placeholder="Calle"
-                    autocomplete="off">
-                <i class="material-icons prefix">add_location</i>
-            </div>
-
-            <div class="col s6 customInput">
-                <input [(ngModel)] = "direccion.numeroInterior" class="browser-default" type="int" name="NimI" id="NimI" placeholder="Numero Interior"
-                    autocomplete="off">
-                <i class="material-icons prefix">markunread_mailbox</i>
-            </div>
-
-            <div class="col s6 customInput">
-                <input [(ngModel)] = "direccion.numeroExterior" class="browser-default" type="int" name="NimE" id="NimE" placeholder="Numero Exterior"
-                    autocomplete="off">
-                <i class="material-icons prefix">markunread_mailbox</i>
-            </div>
-
-            <div class="col s12 customInput">
-                <input [(ngModel)] = "direccion.colonia"  class="browser-default" type="text" name="col" id="col" placeholder="Colonia" autocomplete="off">
-                <i class="material-icons prefix">location_on</i>
-            </div>
-
-            <div class="col s12 customTextArea">
-                <textarea id="referencias" cols="30" rows="5" placeholder="Referencias"></textarea>
-                <i class="material-icons prefix">map</i>
-            </div>
         </div>
-
-        <button (click)="registrarse()" class="btn waves-dark waves-effect col l12 m8 offset-m2 s12 btnRegistro ">
-            REGISTRARSE
-        </button>
     </div>
 </div>
+<app-pie-de-pagina></app-pie-de-pagina>

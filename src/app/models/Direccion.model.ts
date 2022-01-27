@@ -1,18 +1,17 @@
 export class Direccion {
+    idCliente: number;
     colonia: string;
     calle: string;
-    numeroExterior: number;
-    numeroInterior: number;
+    numeroExterior: string;
+    numeroInterior: string;
     referencia: string;
-    idCliente: number;
 
     constructor() {
         this.idCliente = 0;
         this.colonia = '';
         this.calle = '';
-        this.numeroExterior = 0;
-        this.numeroInterior = 0;
+        this.numeroExterior = '';
+        this.numeroInterior = '';
         this.referencia = '';
-        this.idCliente = 0;
     }
 }

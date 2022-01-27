@@ -1,27 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
+import { ClienteNuevo } from '../models/ClienteNuevo.model';
 export class ClienteService {
 
   constructor(private http: HttpClient) {
-   }
+  }
 
   //recibir modelos de registroUsuario y Direccion 
-  registrarCliente(cliente: ClienteRegistro , direccion: Direccion){
-    var Respuesta = this.http.post(`${environment.API_URI}/clientes/crear`, cliente).toPromise();
+  async registrarCliente(cliente: ClienteRegistro, direccion: Direccion): Promise<string> {
+    let clienteNuevo = new ClienteNuevo(cliente)
 
-    Respuesta.then(async (data: any) => {
-      direccion.idCliente = data.insertId;
+    await this.http.post(`${environment.API_URI}/clientes/crear`, clienteNuevo).toPromise()
+      .then(async (data: any) => {
+        direccion.idCliente = data.insertId;
 
-      await this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise(); 
+        return await this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise();
+      })
+      .then(res => {
+        // Usuario Registrado Completamente
+        console.log("Registro Completo")
+      })
+      .catch(error => {
+        console.error(error)
+      })
 
-    }).catch(error => {
-      console.error(error)
+    return new Promise<string>((resolve, reject) => {
+      return resolve(direccion.idCliente.toString())
     })
-    
-
-    
   }
 }

@@ -5,10 +5,15 @@
 	margin: 0 auto;
 }
 
+#circulo .col {
+	padding: 0px;
+}
+
 #circulo .cuarto {
 	height: 50%;
 	cursor: pointer;
 	transition: all 200ms;
+	overflow: hidden;
 }
 
 #circulo .cuarto:hover {
