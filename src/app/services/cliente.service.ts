@@ -6,6 +6,10 @@ import { Direccion } from '../models/Direccion.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
 import { ClienteLogin } from '../models/ClienteLogin.model';
 
+@Injectable({
+  providedIn: 'root'
+})
+
 export class ClienteService {
 
   constructor(private http: HttpClient) {
@@ -36,11 +40,10 @@ export class ClienteService {
 
   
   async iniciarSesionCliente(clienteLogeo: ClienteLogin){
-    var objeto
-    await this.http.get(`${environment.API_URI}/clientes/validar/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
-    .then(async (data:any) =>{
+    return await this.http.get(`${environment.API_URI}/clientes/validar/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
+    /*.then(async (data:any) =>{
       return data.insertId;
-    })
+    })*/
     .catch(error=>{
       console.error(error)
     })

@@ -3,7 +3,6 @@ import { ClienteService } from 'src/app/services/cliente.service';
 import { ClienteLogin } from 'src/app/models/ClienteLogin.model';
 import { Router } from '@angular/router';
 
-declare var $: any;
 
 @Component({
   selector: 'app-inicio-sesion',
