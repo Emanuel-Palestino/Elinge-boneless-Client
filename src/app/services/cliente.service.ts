@@ -4,6 +4,8 @@ import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
+import { ClienteLogin } from '../models/ClienteLogin.model';
+
 export class ClienteService {
 
   constructor(private http: HttpClient) {
@@ -31,4 +33,17 @@ export class ClienteService {
       return resolve(direccion.idCliente.toString())
     })
   }
+
+  
+  async iniciarSesionCliente(clienteLogeo: ClienteLogin){
+    var objeto
+    await this.http.get(`${environment.API_URI}/clientes/validar/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
+    .then(async (data:any) =>{
+      return data.insertId;
+    })
+    .catch(error=>{
+      console.error(error)
+    })
+  }
+
 }
