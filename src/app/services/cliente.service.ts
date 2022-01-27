@@ -4,6 +4,7 @@ import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
+import { Cliente } from '../models/Cliente.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +36,22 @@ export class ClienteService {
       return resolve(direccion.idCliente.toString())
     })
   }
+
+  async obtenerInformacion(id: Number): Promise<Cliente> {
+    let cliente: Cliente = new Cliente()
+
+    await this.http.get(`${environment.API_URI}/clientes/${id}`).toPromise()
+      .then(async (data: any) => {
+        cliente = data
+        console.log("Obtención completa")
+      })
+      .catch(error => {
+        console.error(error)
+      })
+
+    return new Promise<Cliente>((resolve, reject) => {
+      return resolve(cliente)
+    })
+  }
+
 }

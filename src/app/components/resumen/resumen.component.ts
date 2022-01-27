@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Cliente } from 'src/app/models/Cliente.model';
+import { ClienteService } from 'src/app/services/cliente.service';
 
 @Component({
   selector: 'app-resumen',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResumenComponent implements OnInit {
 
-  constructor() { }
+  cliente: Cliente
+
+  constructor(private clienteService: ClienteService) {
+    this.cliente = new Cliente()
+  }
 
   ngOnInit(): void {
+    let id = localStorage.getItem('idCliente')
+    this.clienteService.obtenerInformacion(Number(id))
+      .then(res => {
+        this.cliente = res
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
 }
