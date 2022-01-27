@@ -47,3 +47,20 @@ section:not(:nth-child(1)) {
 .modal.bottom-sheet {
 	max-height: 70%;
 }
+
+.carousel-item {
+	max-height: 420px !important;
+	overflow: hidden;
+}
+
+.carousel-slider {
+	height: 400px !important;
+}
+
+#extras h4 {
+	margin-bottom: 0px;
+}
+
+#extras .row {
+	margin-bottom: 0px;
+}
