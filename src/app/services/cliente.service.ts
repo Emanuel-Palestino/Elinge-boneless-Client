@@ -41,9 +41,10 @@ export class ClienteService {
   
   async iniciarSesionCliente(clienteLogeo: ClienteLogin){
     return await this.http.get(`${environment.API_URI}/clientes/validar/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
-    /*.then(async (data:any) =>{
-      return data.insertId;
-    })*/
+    .then(async (data:any) =>{
+      console.log('sies');
+    })
+    
     .catch(error=>{
       console.error(error)
     })
