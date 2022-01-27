@@ -26,6 +26,7 @@ export class RegistroComponent implements OnInit {
 
     this.servicioCliente.registrarCliente(this.cliente, this.direccion)
       .then(id => {
+        console.log(id)
         localStorage.setItem('idCliente', id)
         this.router.navigateByUrl('app')
       })

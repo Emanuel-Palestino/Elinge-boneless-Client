@@ -22,10 +22,16 @@ export class InicioSesionComponent implements OnInit {
 
   iniciarSesion(): void{
     this.servicioClienteLogueo.iniciarSesionCliente(this.clienteALoguear)
-    .then(id => {
-      localStorage.setItem('idCliente',String(id))
-      this.router.navigateByUrl('app')
-    })
+    .then(id=> {
+      console.log(id)
+      if (Number(id) != -1){
+        localStorage.setItem('idCliente',String(id))
+        this.router.navigateByUrl('app')
+      }        
+      else
+        console.log('campos incorrectos')
+    }
+    )
   }
 
 }
