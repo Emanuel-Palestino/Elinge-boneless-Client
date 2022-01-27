@@ -3,11 +3,6 @@ import {HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
-import { __assign } from 'tslib';
-
-@Injectable({
-  providedIn: 'root'
-})
 export class ClienteService {
 
   constructor(private http: HttpClient) {
