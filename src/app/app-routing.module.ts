@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ClientesComponent } from './components/clientes/clientes.component';
+import { InicioSesionAdministradorComponent } from './components/inicio-sesion-administrador/inicio-sesion-administrador.component';
 import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.component';
 import { PrincipalComponent } from './components/principal/principal.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
-
 const routes: Routes = [
   {
     path: "",
@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: "registrarse",
     component: RegistroComponent
+  },
+  {
+    path: "administracion/ingresar",
+    component: InicioSesionAdministradorComponent
   },
   {
     path: "app",
