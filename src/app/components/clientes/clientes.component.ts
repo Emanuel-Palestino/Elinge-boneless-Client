@@ -17,5 +17,5 @@ export class ClientesComponent implements OnInit {
       this.router.navigateByUrl('registrarse')
     }
   }
-
 }
+
