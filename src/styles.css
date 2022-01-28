@@ -86,3 +86,7 @@ h3, h2 {
 .botonCustom:active {
     transform: scale(0.95);
 }
+
+.botonSmall {
+    height: 35px;
+}

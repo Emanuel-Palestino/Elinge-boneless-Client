@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
-import { Direccion } from '../models/Direccion.model';
+import { DireccionNueva } from '../models/DireccionNueva.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
 import { Cliente } from '../models/Cliente.model';
 import { ClienteLogin } from '../models/ClienteLogin.model';
@@ -17,7 +17,7 @@ export class ClienteService {
   }
 
   //recibir modelos de registroUsuario y Direccion 
-  async registrarCliente(cliente: ClienteRegistro, direccion: Direccion): Promise<string> {
+  async registrarCliente(cliente: ClienteRegistro, direccion: DireccionNueva): Promise<string> {
     let clienteNuevo = new ClienteNuevo(cliente)
 
     await this.http.post(`${environment.API_URI}/clientes/crear`, clienteNuevo).toPromise()

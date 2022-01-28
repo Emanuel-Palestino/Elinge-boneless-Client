@@ -28,7 +28,7 @@ export class InicioSesionComponent implements OnInit {
     .then(id=> {
       if (Number(id) != -1){
         localStorage.setItem('idCliente',String(id))
-        this.router.navigateByUrl('app')
+        this.router.navigateByUrl('app/resumen')
       }        
       else
         alert('Datos Incorrectos')

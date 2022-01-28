@@ -12,9 +12,6 @@ export class BarraNavegacionClientesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('idCliente') == null)
-      this.router.navigateByUrl('ingresar')
-
     $(document).ready(function () 
     {
       $('.sidenav').sidenav();
