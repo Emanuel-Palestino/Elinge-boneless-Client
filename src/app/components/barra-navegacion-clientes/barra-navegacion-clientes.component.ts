@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 declare var $: any
 
 @Component({
@@ -8,9 +9,12 @@ declare var $: any
 })
 export class BarraNavegacionClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    if (localStorage.getItem('idCliente') == null)
+      this.router.navigateByUrl('ingresar')
+
     $(document).ready(function () 
     {
       $('.sidenav').sidenav();

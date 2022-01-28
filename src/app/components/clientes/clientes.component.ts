@@ -14,7 +14,7 @@ export class ClientesComponent implements OnInit {
     if(localStorage.getItem('idCliente') != null) {
       this.router.navigateByUrl('app/resumen')
     } else {
-      this.router.navigateByUrl('registrarse')
+      this.router.navigateByUrl('ingresar')
     }
   }
 }

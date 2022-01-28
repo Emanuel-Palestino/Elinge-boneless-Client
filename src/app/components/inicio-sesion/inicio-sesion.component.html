@@ -4,12 +4,13 @@
 		<h2 class="center-align">Iniciar Sesión</h2>
 
 		<div class="row">
-			<form action="">
+			<form (ngSubmit)="iniciarSesion()" ngNativeValidate>
 				<div class="col s12">
 					<h6 class="center-align">Correo:</h6>
 				</div>
 				<div class="col s12 customInput">
-					<input [(ngModel)]="clienteALoguear.correo" type="email" name="correo" class="browser-default" autocomplete="off" placeholder="Correo">
+					<input [(ngModel)]="clienteALoguear.correo" type="email" name="correo" class="browser-default"
+						autocomplete="off" placeholder="Correo" required>
 					<i class="material-icons prefix">alternate_email</i>
 				</div>
 
@@ -17,13 +18,12 @@
 					<h6 class="center-align">Contraseña:</h6>
 				</div>
 				<div class="col s12 customInput">
-					<input [(ngModel)]="clienteALoguear.password" class="browser-default" type="password" name="password"
-						placeholder="Contraseña">
+					<input [(ngModel)]="clienteALoguear.password" class="browser-default" type="password"
+						name="password" placeholder="Contraseña" required>
 					<i class="material-icons prefix">password</i>
 				</div>
 
-				<input (click)="iniciarSesion()" type="submit" class="btn col l12 m8 offset-m2 s12 btnIniciarSesion"
-					value="INICIAR SESIÓN">
+				<input type="submit" class="btn col l12 m8 offset-m2 s12 botonCustom" value="INICIAR SESIÓN">
 			</form>
 		</div>
 	</div>
