@@ -1,9 +1,9 @@
 export class ClienteLogin {
     correo: string;
-    contraseña: string;
+    password: string;
 
     constructor() {
         this.correo = '';
-        this.contraseña = '';
+        this.password = '';
     }
 }

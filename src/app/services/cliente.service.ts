@@ -4,10 +4,12 @@ import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
 import { Direccion } from '../models/Direccion.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
+import { ClienteLogin } from '../models/ClienteLogin.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class ClienteService {
 
   constructor(private http: HttpClient) {
@@ -35,4 +37,23 @@ export class ClienteService {
       return resolve(direccion.idCliente.toString())
     })
   }
+
+  
+  async iniciarSesionCliente(clienteLogeo: ClienteLogin){
+
+    var id: string
+
+    await this.http.get(`${environment.API_URI}/clientes/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
+    .then(async(data: any)=>{
+      id=data
+    })
+    .catch(error=>{
+      console.error(error)
+    })
+
+    return new Promise<string>((resolve, reject)=>{
+      return resolve(id)
+    })
+  }
+
 }
