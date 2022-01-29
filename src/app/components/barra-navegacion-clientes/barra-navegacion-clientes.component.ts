@@ -18,4 +18,9 @@ export class BarraNavegacionClientesComponent implements OnInit {
     });
   }
 
+  cerrarSesion(): void{
+    localStorage.removeItem("idCliente");
+    this.router.navigateByUrl("/");
+  }
+
 }
