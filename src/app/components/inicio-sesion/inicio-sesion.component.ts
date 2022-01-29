@@ -19,7 +19,7 @@ export class InicioSesionComponent implements OnInit {
 
   ngOnInit(): void {
     if (localStorage.getItem('idCliente') != null) {
-      this.router.navigateByUrl('app')
+      this.router.navigateByUrl('app/resumen')
     }
   }
 
