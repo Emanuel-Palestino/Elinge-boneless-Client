@@ -16,6 +16,7 @@ import { InicioSesionAdministradorComponent } from './components/inicio-sesion-a
 import { BarraNavegacionClientesComponent } from './components/barra-navegacion-clientes/barra-navegacion-clientes.component';
 import { DireccionesComponent } from './components/direcciones/direcciones.component';
 import { DireccionesAgregarComponent } from './components/direcciones-agregar/direcciones-agregar.component';
+import { AdministracionComponent } from './components/administracion/administracion.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { DireccionesAgregarComponent } from './components/direcciones-agregar/di
     BarraNavegacionClientesComponent,
     DireccionesComponent,
     DireccionesAgregarComponent,
+    AdministracionComponent,
   ],
   imports: [
     BrowserModule,
