@@ -13,18 +13,18 @@ export class AdministracionService {
 
   async iniciarSesionAdministrador(administradorLogeo: ClienteLogin){
     
-    let idAdmnin: string;
+    let confirmacion: string;
 
     await this.http.get(`${environment.API_URI}/administracion/validar/${administradorLogeo.correo}/${administradorLogeo.password}`).toPromise()
       .then(async (data:any) => {
-        idAdmnin = data;
+        confirmacion = data;
       })
       .catch(error => {
         console.error(error);
       });
     
       return new Promise<string>((resolve,reject) => {
-        return resolve(idAdmnin);
+        return resolve(confirmacion);
       })
     
   }
