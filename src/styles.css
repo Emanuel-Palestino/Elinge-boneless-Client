@@ -72,16 +72,21 @@ h3, h2 {
 }
 
 
-.btnRegistro {
+.botonCustom {
+    height: 50px;
     border-radius: 12px;
     background-color: #f81515;
     transition: all 300ms;
 }
 
-.btnRegistro:hover {
+.botonCustom:hover {
     background-color: #c11010;
 }
 
-.btnRegistro:active {
+.botonCustom:active {
     transform: scale(0.95);
+}
+
+.botonSmall {
+    height: 35px;
 }

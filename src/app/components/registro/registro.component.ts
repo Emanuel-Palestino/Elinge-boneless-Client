@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { ClienteRegistro } from 'src/app/models/ClienteRegistro.model';
-import { Direccion } from 'src/app/models/Direccion.model';
+import { DireccionNueva } from 'src/app/models/DireccionNueva.model';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,11 +12,11 @@ import { Router } from '@angular/router';
 export class RegistroComponent implements OnInit {
 
   cliente: ClienteRegistro;
-  direccion: Direccion;
+  direccion: DireccionNueva;
 
   constructor(private servicioCliente: ClienteService, private router: Router) {
     this.cliente = new ClienteRegistro();
-    this.direccion = new Direccion();
+    this.direccion = new DireccionNueva();
   }
 
   ngOnInit(): void {
@@ -28,7 +28,7 @@ export class RegistroComponent implements OnInit {
       .then(id => {
         console.log(id)
         localStorage.setItem('idCliente', id)
-        this.router.navigateByUrl('app')
+        this.router.navigateByUrl('app/resumen')
       })
 
   }

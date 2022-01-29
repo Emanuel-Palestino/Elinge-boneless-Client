@@ -5,24 +5,24 @@
 
         <div class="row">
             <!-- DATOS PERSONALES-->
-            <form action="">
+            <form (ngSubmit)="registrarse()" ngNativeValidate>
                 <h6 class="center-align">Datos Personales</h6>
 
                 <div class="col s12 customInput">
                     <input [(ngModel)]="cliente.nombre" class="browser-default" type="text" name="nombres"
-                        placeholder="Nombre(s)" autocomplete="off">
+                        placeholder="Nombre(s)" autocomplete="off" required>
                     <i class="material-icons prefix">person</i>
                 </div>
 
                 <div class="col s12 customInput">
                     <input [(ngModel)]="cliente.apellidos" class="browser-default" type="text" name="apellidos"
-                        placeholder="Apellidos" autocomplete="off">
+                        placeholder="Apellidos" autocomplete="off" required>
                     <i class="material-icons prefix">person</i>
                 </div>
 
                 <div class="col s12 customInput">
                     <input [(ngModel)]="cliente.telefono" class="browser-default" type="tel" name="telefono"
-                        placeholder="Teléfono" autocomplete="off">
+                        placeholder="Teléfono" autocomplete="off" required>
                     <i class="material-icons prefix">smartphone</i>
                 </div>
 
@@ -91,7 +91,7 @@
                 </div>
 
 
-                <input (click)="registrarse()" type="submit" class="btn col l12 m8 offset-m2 s12 btnRegistro"
+                <input type="submit" class="btn col l12 m8 offset-m2 s12 botonCustom"
                     value="REGISTRARSE">
 
             </form>
