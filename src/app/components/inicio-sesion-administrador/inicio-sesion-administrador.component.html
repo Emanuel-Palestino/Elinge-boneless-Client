@@ -4,12 +4,12 @@
 		<h2 class="center-align">Ingresar a la Adminstración</h2>
 
 		<div class="row">
-			<form ngNativeValidate>
+			<form (ngSubmit)="iniciarSesionAdmi()" ngNativeValidate>
 				<div class="col s12">
 					<h6 class="center-align">Correo:</h6>
 				</div>
 				<div class="col s12 customInput">
-					<input type="email" name="correo" class="browser-default" autocomplete="off" placeholder="Correo"
+					<input [(ngModel)]="logearAdministrador.correo" type="email" name="correo" class="browser-default" autocomplete="off" placeholder="Correo"
 						required>
 					<i class="material-icons prefix">alternate_email</i>
 				</div>
@@ -18,7 +18,7 @@
 					<h6 class="center-align">Contraseña:</h6>
 				</div>
 				<div class="col s12 customInput">
-					<input type="password" name="contraseña" class="browser-default" autocomplete="off"
+					<input [(ngModel)]="logearAdministrador.password" type="password" name="contraseña" class="browser-default" autocomplete="off"
 						placeholder="Contraseña" required>
 					<i class="material-icons prefix">password</i>
 				</div>
