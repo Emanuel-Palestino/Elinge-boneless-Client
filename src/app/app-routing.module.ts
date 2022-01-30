@@ -9,6 +9,7 @@ import { PrincipalComponent } from './components/principal/principal.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+import { StockComponent } from './components/stock/stock.component';
 const routes: Routes = [
   {
     path: "",
@@ -31,6 +32,10 @@ const routes: Routes = [
     component: InicioSesionAdministradorComponent
   },
   {
+    path: "administracion/stock",
+    component: StockComponent
+  },
+  {
     path: "app",
     component: ClientesComponent,
     children: [
@@ -51,7 +56,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {useHash: true})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

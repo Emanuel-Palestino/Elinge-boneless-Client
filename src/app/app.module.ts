@@ -17,6 +17,8 @@ import { BarraNavegacionClientesComponent } from './components/barra-navegacion-
 import { DireccionesComponent } from './components/direcciones/direcciones.component';
 import { DireccionesAgregarComponent } from './components/direcciones-agregar/direcciones-agregar.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+import { BarraNavegacionAdministracionComponent } from './components/barra-navegacion-administracion/barra-navegacion-administracion.component';
+import { StockComponent } from './components/stock/stock.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,8 @@ import { AdministracionComponent } from './components/administracion/administrac
     DireccionesComponent,
     DireccionesAgregarComponent,
     AdministracionComponent,
+    BarraNavegacionAdministracionComponent,
+    StockComponent,
   ],
   imports: [
     BrowserModule,
