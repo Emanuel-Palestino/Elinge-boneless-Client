@@ -22,10 +22,10 @@ export class InicioSesionAdministradorComponent implements OnInit {
 
   iniciarSesionAdmi(): void{
     this.servicioAdminLogeo.iniciarSesionAdministrador(this.logearAdministrador)
-    .then( idAdmin => {
-      let idAdminB = Boolean(idAdmin);
-      if(idAdminB != false){
-        localStorage.setItem('administrador',String(idAdmin));
+    .then( confirmacion => {
+      let confirmacionN = Boolean(confirmacion);
+      if(confirmacionN != false){
+        localStorage.setItem('administrador',confirmacion);
         this.router.navigateByUrl('administracion');
       }
       else{
