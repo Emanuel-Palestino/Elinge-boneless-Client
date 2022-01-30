@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { ResumenComponent } from './components/resumen/resumen.component';
     PieDePaginaComponent,
     ClientesComponent,
     ResumenComponent,
+    PedidoComponent,
   ],
   imports: [
     BrowserModule,

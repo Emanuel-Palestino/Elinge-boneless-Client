@@ -5,6 +5,7 @@ import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.
 import { PrincipalComponent } from './components/principal/principal.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 
 const routes: Routes = [
   {
@@ -26,8 +27,12 @@ const routes: Routes = [
       {
         path: "resumen",
         component: ResumenComponent
-      }
+      },
     ]
+  },
+  {
+    path :"pedido",
+    component: PedidoComponent
   }
 ];
 
