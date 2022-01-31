@@ -7,12 +7,10 @@
             <form action="">
                 <h6 class="center-align">Información del pedido</h6>
 
-
-
-
-
-
-
+                <label>Direccion</label>
+                     <select class="browser-default">
+                       <option value="" disabled selected>Seleccione una de sus direcciones</option>
+                 </select>
 
                 
                 <!--boneless-->
@@ -111,7 +109,24 @@
                     <i class="material-icons prefix">note</i>
                 </div>
 
-               
+                <div class="col s12 customInput">
+                    <input class="browser-default" type="text" name="nombres"
+                        placeholder="Total" autocomplete="off">
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+
+
+                <div class="col s12 customInput">
+                    <input class="browser-default" type="text" name="nombres"
+                        placeholder="¿Con cuanto dinero va a pagar?" autocomplete="off">
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+                <p><small>Este apartado nos ayuda a saber cuanto cambio habremos de entregarle:)</small></p>
+
+
+
+
+                
 
 
                 <input type="submit" class="btn col l12 m8 offset-m2 s12 btnPedido"
