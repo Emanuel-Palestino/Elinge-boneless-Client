@@ -30,7 +30,15 @@ export class DireccionesService {
   {
     console.log("Entrando al servicio NuevaDireccion")
     direccion.idCliente=idCliente;
-    return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion);
+    return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise()
+    .then((data:any)=> {})
+    .catch(error=> {
+      console.error(error)
+    })
+    return new Promise<void>((resolve, reject) => {
+      return resolve()
+    })
+    
   }
 
 }

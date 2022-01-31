@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DireccionesService } from '../../services/direcciones.service';
 import { DireccionNueva } from '../../models/DireccionNueva.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-direcciones-agregar',
@@ -10,7 +11,7 @@ import { DireccionNueva } from '../../models/DireccionNueva.model';
 export class DireccionesAgregarComponent implements OnInit
 {
   direccionNueva:DireccionNueva;
-  constructor(private direccionesServicie:DireccionesService) 
+  constructor(private direccionesServicie:DireccionesService,private router: Router) 
   {
     this.direccionNueva=new DireccionNueva();
   }
@@ -22,7 +23,7 @@ export class DireccionesAgregarComponent implements OnInit
     console.log("Entrando para agregar una direccion nueva")
     let idCliente = localStorage.getItem('idCliente');
     this.direccionesServicie.crearNuevaDireccion(Number(idCliente),this.direccionNueva).then(res => { 
-      console.log("Direccion Agregada")
+      this.router.navigateByUrl('app/direcciones')
     }, err => console.error(err) );
   }
 
