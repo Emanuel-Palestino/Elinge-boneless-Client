@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 import { environment } from 'src/environments/environment';
 import { ClienteRegistro } from '../models/ClienteRegistro.model';
-import { Direccion } from '../models/Direccion.model';
+import { DireccionNueva } from '../models/DireccionNueva.model';
 import { ClienteNuevo } from '../models/ClienteNuevo.model';
+import { Cliente } from '../models/Cliente.model';
 import { ClienteLogin } from '../models/ClienteLogin.model';
 
 @Injectable({
@@ -16,7 +17,7 @@ export class ClienteService {
   }
 
   //recibir modelos de registroUsuario y Direccion 
-  async registrarCliente(cliente: ClienteRegistro, direccion: Direccion): Promise<string> {
+  async registrarCliente(cliente: ClienteRegistro, direccion: DireccionNueva): Promise<string> {
     let clienteNuevo = new ClienteNuevo(cliente)
 
     await this.http.post(`${environment.API_URI}/clientes/crear`, clienteNuevo).toPromise()
@@ -38,20 +39,35 @@ export class ClienteService {
     })
   }
 
-  
-  async iniciarSesionCliente(clienteLogeo: ClienteLogin){
+  async obtenerInformacion(id: Number): Promise<Cliente> {
+    let cliente: Cliente = new Cliente()
 
+    await this.http.get(`${environment.API_URI}/clientes/${id}`).toPromise()
+      .then(async (data: any) => {
+        cliente = data
+        console.log("Obtención completa")
+      })
+      .catch(error => {
+        console.error(error)
+      })
+
+    return new Promise<Cliente>((resolve, reject) => {
+      return resolve(cliente)
+    })
+  }
+
+  async iniciarSesionCliente(clienteLogeo: ClienteLogin) {
     var id: string
 
     await this.http.get(`${environment.API_URI}/clientes/${clienteLogeo.correo}/${clienteLogeo.password}`).toPromise()
-    .then(async(data: any)=>{
-      id=data
-    })
-    .catch(error=>{
-      console.error(error)
-    })
+      .then(async (data: any) => {
+        id = data
+      })
+      .catch(error => {
+        console.error(error)
+      })
 
-    return new Promise<string>((resolve, reject)=>{
+    return new Promise<string>((resolve, reject) => {
       return resolve(id)
     })
   }

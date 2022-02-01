@@ -13,6 +13,11 @@ import { FormsModule } from '@angular/forms';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
 import { PedidoComponent } from './components/pedido/pedido.component';
+import { InicioSesionAdministradorComponent } from './components/inicio-sesion-administrador/inicio-sesion-administrador.component';
+import { BarraNavegacionClientesComponent } from './components/barra-navegacion-clientes/barra-navegacion-clientes.component';
+import { DireccionesComponent } from './components/direcciones/direcciones.component';
+import { DireccionesAgregarComponent } from './components/direcciones-agregar/direcciones-agregar.component';
+import { AdministracionComponent } from './components/administracion/administracion.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +30,11 @@ import { PedidoComponent } from './components/pedido/pedido.component';
     ClientesComponent,
     ResumenComponent,
     PedidoComponent,
+    InicioSesionAdministradorComponent,
+    BarraNavegacionClientesComponent,
+    DireccionesComponent,
+    DireccionesAgregarComponent,
+    AdministracionComponent,
   ],
   imports: [
     BrowserModule,
