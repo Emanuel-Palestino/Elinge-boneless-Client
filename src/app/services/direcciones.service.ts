@@ -7,6 +7,7 @@ import { DireccionNueva } from '../models/DireccionNueva.model';
 @Injectable({
   providedIn: 'root'
 })
+
 export class DireccionesService {
 
   constructor(private http: HttpClient) { }
@@ -26,19 +27,25 @@ export class DireccionesService {
       return resolve(direcciones)
     })
   }
-  async crearNuevaDireccion(idCliente:number,direccion:DireccionNueva)
-  {
-    console.log("Entrando al servicio NuevaDireccion")
-    direccion.idCliente=idCliente;
-    return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise()
-    .then((data:any)=> {})
-    .catch(error=> {
-      console.error(error)
+
+  async crearNuevaDireccion(idCliente: number, direccion: DireccionNueva) {
+    direccion.idCliente = idCliente;
+    let respuesta: any
+
+    await this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise()
+      .then((data: any) => { 
+        respuesta = data
+      })
+      .catch(error => {
+        console.error(error)
+      })
+
+    return new Promise<boolean>((resolve, reject) => {
+      if (Number(respuesta.insertId) > 0)
+        return resolve(true)
+      else
+        return reject("Servicio: Error al agregar la Dirección")
     })
-    return new Promise<void>((resolve, reject) => {
-      return resolve()
-    })
-    
   }
 
 }
