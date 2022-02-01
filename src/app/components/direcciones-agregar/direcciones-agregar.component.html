@@ -3,40 +3,40 @@
         <h2 class="center-align">Agregar Dirección</h2>
 
         <div class="row">
-            <form ngNativeValidate>
+            <form (ngSubmit)="agregarDireccion()" ngNativeValidate>
                 <!-- DATOS DE DIRECCION -->
                 <div class="col s12 customInput">
-                    <input class="browser-default" type="text" name="calle"
+                    <input [(ngModel)]="direccionNueva.calle" class="browser-default" type="text" name="calle"
                         placeholder="Calle" autocomplete="off">
                     <i class="material-icons prefix">location_on</i>
                 </div>
 
                 <div class="col s6 customInput">
-                    <input class="browser-default" type="number" name="numeroExterior"
+                    <input [(ngModel)]="direccionNueva.numeroExterior" class="browser-default" type="number" name="numeroExterior"
                         placeholder="Num. Exterior" autocomplete="off">
                     <i class="material-icons prefix">tag</i>
                 </div>
 
                 <div class="col s6 customInput">
-                    <input class="browser-default" type="number" name="numreoInterior"
+                    <input [(ngModel)]="direccionNueva.numeroInterior" class="browser-default" type="number" name="numreoInterior"
                         placeholder="Num. Interior" autocomplete="off">
                     <i class="material-icons prefix">tag</i>
                 </div>
 
                 <div class="col s12 customInput">
-                    <input class="browser-default" type="text" name="col" id="col"
+                    <input [(ngModel)]="direccionNueva.colonia" class="browser-default" type="text" name="col" id="col"
                         placeholder="Colonia" autocomplete="off">
                     <i class="material-icons prefix">explore</i>
                 </div>
 
                 <div class="col s12 customTextArea">
-                    <textarea name="referencias" cols="30" rows="5" placeholder="Referencias"></textarea>
+                    <textarea [(ngModel)]="direccionNueva.referencia" name="referencias" cols="30" rows="5" placeholder="Referencias"></textarea>
                     <i class="material-icons prefix">map</i>
                 </div>
 
 
                 <input type="submit" class="btn col l12 m8 offset-m2 s12 botonCustom"
-                    value="AGREGAR">
+                    value="AGREGAR">      
 
             </form>
 
