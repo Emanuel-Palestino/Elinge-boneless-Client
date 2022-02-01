@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Direccion } from '../models/Direccion.model';
+import { DireccionNueva } from '../models/DireccionNueva.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,20 @@ export class DireccionesService {
       return resolve(direcciones)
     })
   }
+  async crearNuevaDireccion(idCliente:number,direccion:DireccionNueva)
+  {
+    console.log("Entrando al servicio NuevaDireccion")
+    direccion.idCliente=idCliente;
+    return this.http.post(`${environment.API_URI}/direcciones/crear`, direccion).toPromise()
+    .then((data:any)=> {})
+    .catch(error=> {
+      console.error(error)
+    })
+    return new Promise<void>((resolve, reject) => {
+      return resolve()
+    })
+    
+  }
 
 }
+
