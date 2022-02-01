@@ -1,0 +1,140 @@
+<app-barra-navegacion></app-barra-navegacion>
+<div class="container row">
+    <div class="col s12 m12 l6 offset-l3">
+        <h2 class="center-align">Realizar Pedido</h2>
+
+        <div class="row">
+            <form action="">
+                <h6 class="center-align">Información del pedido</h6>
+
+                <label>Direccion</label>
+                     <select class="browser-default">
+                       <option value="" disabled selected>Seleccione una de sus direcciones</option>
+                 </select>
+
+                
+                <!--boneless-->
+                <div class="row">
+                    <h6 class="center-align" for="">Cantidad Boneless:</h6>
+                </div>
+
+                <label>Ordenes de Boneless</label>
+                     <select class="browser-default">
+                       <option value="" disabled selected>Elige la cantidad</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                 </select>
+
+                 <p><small>Cada orden contiene 250 gramos de Boneless más verduras, papas y aderezo. <br>Costo: $120 M.N.</small></p>
+
+                <div class="row">
+                    <h6 class="center-align" for="">Sabor:</h6>
+                </div>
+
+                <div class="row">
+                    <div class="col l2 m6 s6 customCheck">
+                            <label>
+                              <input type="checkbox" />
+                              <span>Mango Habanero</span>
+                            </label>
+                    </div>
+
+                    <div class="col l8 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" />
+                            <span>Piña Habanero</span>
+                          </label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col l1 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" />
+                            <span>BBQ</span>
+                          </label>
+                    </div>
+
+                    <div class="col l9 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" />
+                            <span>Búfalo</span>
+                          </label>
+                    </div>
+                </div>
+
+                <!--Papas-->
+
+                <div class="row">
+                    <h6 class="center-align" for="">Papas:</h6>
+                </div>
+
+                <label>Ordenes de papas</label>
+                <select class="browser-default">
+                  <option value="" disabled selected>Elige la cantidad</option>
+                   <option value="1">1</option>
+                   <option value="2">2</option>
+                   <option value="3">3</option>
+                   <option value="4">4</option>
+                </select>
+                <p><small>Cada orden de papas sencillas es de 500 gramos de papas más verduras y aderezos. <br>
+                    La Orden de papas Especiales es de 500 gramos de papas con aderezo de queso y tocino.<br>
+                    Costo: $50 M.N</small></p>
+
+                <div class="row">
+                    <div class="col l2 m4 s6 customCheck">
+                        <label>
+                            <input type="checkbox" />
+                            <span>Especiales</span>
+                          </label>
+                    </div>
+
+                    <div class="col l8 m4 s6 customCheck">
+                        <label>
+                            <input type="checkbox" />
+                            <span>Sencillas</span>
+                          </label>
+                    </div>
+                </div>
+                
+                <!--Anotaciones-->
+                <div class="col s12 customTextArea">
+                    <textarea name="Anotaciones" cols="30" rows="5" placeholder="Anotaciones"></textarea>
+                    <i class="material-icons prefix">note</i>
+                </div>
+
+                <div class="col s12 customInput">
+                    <input class="browser-default" type="text" name="nombres"
+                        placeholder="Total" autocomplete="off">
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+
+
+                <div class="col s12 customInput">
+                    <input class="browser-default" type="text" name="nombres"
+                        placeholder="¿Con cuanto dinero va a pagar?" autocomplete="off">
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+                <p><small>Este apartado nos ayuda a saber cuanto cambio habremos de entregarle:)</small></p>
+
+
+
+
+                
+
+
+                <input type="submit" class="btn col l12 m8 offset-m2 s12 btnPedido"
+                value="REALIZAR PEDIDO">
+
+            </form>
+
+        </div>
+    </div>
+</div>
+<app-pie-de-pagina></app-pie-de-pagina>

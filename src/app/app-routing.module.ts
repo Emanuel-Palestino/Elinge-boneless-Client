@@ -8,7 +8,9 @@ import { InicioSesionComponent } from './components/inicio-sesion/inicio-sesion.
 import { PrincipalComponent } from './components/principal/principal.component';
 import { RegistroComponent } from './components/registro/registro.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 import { AdministracionComponent } from './components/administracion/administracion.component';
+
 const routes: Routes = [
   {
     path: "",
@@ -47,6 +49,10 @@ const routes: Routes = [
         component: DireccionesAgregarComponent
       }
     ]
+  },
+  {
+    path :"pedido",
+    component: PedidoComponent
   }
 ];
 

@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ResumenComponent } from './components/resumen/resumen.component';
+import { PedidoComponent } from './components/pedido/pedido.component';
 import { InicioSesionAdministradorComponent } from './components/inicio-sesion-administrador/inicio-sesion-administrador.component';
 import { BarraNavegacionClientesComponent } from './components/barra-navegacion-clientes/barra-navegacion-clientes.component';
 import { DireccionesComponent } from './components/direcciones/direcciones.component';
@@ -28,6 +29,7 @@ import { AdministracionComponent } from './components/administracion/administrac
     PieDePaginaComponent,
     ClientesComponent,
     ResumenComponent,
+    PedidoComponent,
     InicioSesionAdministradorComponent,
     BarraNavegacionClientesComponent,
     DireccionesComponent,
