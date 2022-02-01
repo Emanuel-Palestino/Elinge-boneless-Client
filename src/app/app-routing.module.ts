@@ -52,12 +52,12 @@ const routes: Routes = [
       {
         path: "direcciones/agregar",
         component: DireccionesAgregarComponent
+      },
+      {
+        path: "pedido",
+        component: PedidoComponent
       }
     ]
-  },
-  {
-    path :"pedido",
-    component: PedidoComponent
   }
 ];
 
