@@ -11,11 +11,8 @@ export class ClientesComponent implements OnInit {
   constructor(private router: Router) { }
 
   ngOnInit(): void {
-    if(localStorage.getItem('idCliente') != null) {
-      this.router.navigateByUrl('app/resumen')
-    } else {
-      this.router.navigateByUrl('registrarse')
-    }
+    if (localStorage.getItem('idCliente') == null)
+      this.router.navigateByUrl('ingresar')
   }
 }
 

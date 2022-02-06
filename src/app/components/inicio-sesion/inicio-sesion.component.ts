@@ -17,19 +17,21 @@ export class InicioSesionComponent implements OnInit {
     this.clienteALoguear = new ClienteLogin();
    }
 
-  ngOnInit(): void {    
+  ngOnInit(): void {
+    if (localStorage.getItem('idCliente') != null) {
+      this.router.navigateByUrl('app/resumen')
+    }
   }
 
   iniciarSesion(): void{
     this.servicioClienteLogueo.iniciarSesionCliente(this.clienteALoguear)
     .then(id=> {
-      console.log(id)
       if (Number(id) != -1){
         localStorage.setItem('idCliente',String(id))
-        this.router.navigateByUrl('app')
+        this.router.navigateByUrl('app/resumen')
       }        
       else
-        console.log('campos incorrectos')
+        alert('Datos Incorrectos')
     }
     )
   }

@@ -1,0 +1,133 @@
+<div class="container row">
+    <div class="col s12 m12 l6 offset-l3">
+        <h2 class="center-align">Realizar Pedido</h2>
+
+        <div class="row">
+            <form ngNativeValidate>
+
+                <h5 class="center-align">Información del pedido</h5>
+                <!--Boneless-->
+                <label>Cantidad de Boneless</label>
+                <div class="customInput">
+                    <select name="cantidad-boneless" required>
+                        <option value="" disabled selected>Elige la cantidad</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                    </select>
+                    <i class="material-icons prefix">tag</i>
+                </div>
+                <small>Cada orden contiene 250g de boneless más verduras, papas y aderezo. Costo: $120 MXN.</small>
+
+                <!-- Sabores -->
+                <label>Sabor:</label>
+                <div class="row">
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="mangoH"/>
+                            <span>Mango Habanero</span>
+                        </label>
+                    </div>
+
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="piñaH"/>
+                            <span>Piña Habanero</span>
+                        </label>
+                    </div>
+
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="bbq"/>
+                            <span>BBQ</span>
+                        </label>
+                    </div>
+
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="bufalo"/>
+                            <span>Búfalo</span>
+                        </label>
+                    </div>
+
+                </div>
+
+                <!--Papas-->
+                <label>Ordenes de papas:</label>
+                <div class="customInput">
+                    <select name="cantidad-papas" required>
+                        <option value="" disabled selected>Elige la cantidad</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                    <i class="material-icons prefix">tag</i>
+                </div>
+
+                <label class="cI-siguiente">Tipo:</label>
+                <div class="row" style="margin: 0;">
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="especiales"/>
+                            <span>Especiales</span>
+                        </label>
+                    </div>
+
+                    <div class="col l6 m6 s6 customCheck">
+                        <label>
+                            <input type="checkbox" name="sencillas"/>
+                            <span>Sencillas</span>
+                        </label>
+                    </div>
+                    <small>Cada orden de papas sencillas es de 500g de papas más verduras y aderezos.
+                        La orden de papas especiales es de 500g de papas con aderezo de queso y tocino. Costo: $50
+                        MXN.
+                    </small>
+                </div>
+
+                <!-- Total y Anotaciones -->
+                <h5 class="center-align">Envío y Total</h5>
+                <label>Dirección:</label>
+                <div class="customInput">
+                    <select name="direccion" required>
+                        <option value="0" disabled selected>Seleccione una de sus direcciones</option>
+                        <option *ngFor="let direccion of direcciones" value="{{direccion.idDireccion}}">{{direccion.calle}} #{{direccion.numeroExterior}}</option>
+                    </select>
+                    <i class="material-icons prefix">location_on</i>
+                </div>
+
+                <label>Notas:</label>
+                <div class="customTextArea">
+                    <textarea name="notas" cols="30" rows="5" placeholder="Datos extra"></textarea>
+                    <i class="material-icons prefix">notes</i>
+                </div>
+
+                <label>Total del Pedido:</label>
+                <div class="customInput">
+                    <input class="browser-default" type="number" name="total" placeholder="Total" autocomplete="off" readonly>
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+
+                <label>Cantidad de dinero con el que pagará:</label>
+                <div class="customInput">
+                    <input class="browser-default" type="number" name="efectivo" placeholder="Efectivo" autocomplete="off" required>
+                    <i class="material-icons prefix">local_atm</i>
+                </div>
+
+                <label>Cambio:</label>
+                <div class="customInput">
+                    <input class="browser-default" type="number" name="cambio" placeholder="Cambio" autocomplete="off" readonly>
+                    <i class="material-icons prefix">attach_money</i>
+                </div>
+
+                <input type="submit" class="btn col l12 m8 offset-m2 s12 botonCustom" value="REALIZAR PEDIDO">
+            </form>
+        </div>
+    </div>
+</div>

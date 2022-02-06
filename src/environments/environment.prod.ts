@@ -1,4 +1,4 @@
 export const environment = {
-  API_URI: "http://localhost:4200/api/",
+  API_URI: "https://elinge-boneless.com/api",
   production: true
 };

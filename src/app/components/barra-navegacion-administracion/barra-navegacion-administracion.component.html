@@ -1,0 +1,21 @@
+<header class="navbar-fixed">
+	<nav>
+		<div class="nav-wrapper" id="barra_navegacion">
+			<a href="/" class="brand-logo">
+				<img src="assets/Elinge-logo.png" alt="El inge Boneless">
+			</a>
+			<a href="#" data-target="nav_mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+			<ul class="right hide-on-med-and-down">
+				<li><a href="/administracion">Principal</a></li>
+				<li><a href="/administracion/stock">Stock</a></li>
+				<li><a (click)="salir()">Salir</a></li>
+			</ul>
+		</div>
+	</nav>
+</header>
+
+<ul class="sidenav" id="nav_mobile">
+	<li><a href="/administracion">Principal</a></li>
+	<li><a href="/administracion/stock">Stock</a></li>
+	<li><a (click)="salir()">Salir</a></li>
+</ul>

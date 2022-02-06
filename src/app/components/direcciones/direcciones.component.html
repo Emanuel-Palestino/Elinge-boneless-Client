@@ -1,0 +1,23 @@
+<div class="container row">
+	<h3>Direcciones</h3>
+	<a href="/app/direcciones/agregar" class="btn botonCustom botonSmall">Agregar Dirección</a>
+	<div class="contenedor-tabla">
+		<table class="striped responsive-table">
+			<tr id="header">
+				<th>Calle</th>
+				<th>Numero Exterior</th>
+				<th>Numero Interior</th>
+				<th>Colonia</th>
+				<th>Referencia</th>
+			</tr>
+			<tr *ngFor="let direccion of direcciones">
+				<td>{{direccion.calle}}</td>
+				<td>{{direccion.numeroExterior}}</td>
+				<td>{{direccion.numeroInterior}}</td>
+				<td>{{direccion.colonia}}</td>
+				<td>{{direccion.referencia}}</td>
+			</tr>
+		</table>
+	</div>
+
+</div>

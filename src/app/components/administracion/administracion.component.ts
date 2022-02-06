@@ -1,0 +1,22 @@
+import { Component, OnInit } from '@angular/core'
+import { Router } from '@angular/router'
+declare var $: any
+
+@Component({
+  selector: 'app-administracion',
+  templateUrl: './administracion.component.html',
+  styleUrls: ['./administracion.component.css']
+})
+export class AdministracionComponent implements OnInit {
+
+  constructor(private router: Router) { }
+
+  ngOnInit(): void {
+    if (localStorage.getItem('administrador') == null)
+      this.router.navigateByUrl('administracion/ingresar')
+    $(document).ready(function () {
+      $('.collapsible').collapsible()
+    });
+  }
+
+}
