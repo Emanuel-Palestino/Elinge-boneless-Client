@@ -7,6 +7,7 @@ import { ClienteNuevo } from '../models/ClienteNuevo.model';
 import { Cliente } from '../models/Cliente.model';
 import { ClienteLogin } from '../models/ClienteLogin.model';
 import { ContenidoPedido } from '../models/ContenidoPedido';
+import { Pedido } from '../models/Pedido';
 @Injectable({
   providedIn: 'root'
 })
@@ -39,13 +40,13 @@ export class ClienteService {
     })
   }
   //Hacer Pedido
-  async realizarPedido(idPedido:number,pedidoCont: ContenidoPedido): Promise<ContenidoPedido> {
-    ContenidoPedido.idPedido=idPedido;
-    await this.http.post(`${environment.API_URI}/contenidoPedido/crear`, pedidoCont).toPromise()
+  async realizarPedido(idPedido:number,idCliente:number,pedidoCont: ContenidoPedido,pedido:Pedido): Promise<ContenidoPedido> {
+    pedidoCont.idPedido=idPedido;
+    pedido.idCliente=idCliente;
+    await this.http.post(`${environment.API_URI}/realizarPedido`,pedido, pedidoCont).toPromise()
       .then(async (data: any) => {
       })
       .then(res => {
-        // Usuario Registrado Completamente
         console.log("Pedido Realizado")
       })
       .catch(error => {
