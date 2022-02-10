@@ -39,11 +39,13 @@ export class ClienteService {
       return resolve(direccion.idCliente.toString())
     })
   }
+
   //Hacer Pedido
   async realizarPedido(idCliente:number,pedidoCont: ContenidoPedido,pedido:Pedido): Promise<ContenidoPedido> {
     pedido.idCliente=idCliente;
     await this.http.post(`${environment.API_URI}/realizarPedido`,pedido, pedidoCont).toPromise()
-      .then(async (data: any) => {
+      .then(res => {
+        console.log("Pedido Realizado")
       })
       .catch(error => {
         console.error(error)
