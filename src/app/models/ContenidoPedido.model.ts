@@ -1,6 +1,4 @@
 export class ContenidoPedido {
-    idOrden: number
-    idPedido: number
     subtotal: number
     cantidadBoneless: number
     cantidadPapas: number
@@ -11,8 +9,6 @@ export class ContenidoPedido {
     papasEspeciales: number
 
     constructor() {
-        this.idOrden = 0
-        this.idPedido = 0
         this.subtotal = 0
         this.cantidadBoneless = 0
         this.cantidadPapas = 0

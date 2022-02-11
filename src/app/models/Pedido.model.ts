@@ -1,18 +1,18 @@
 export class Pedido {
-    idPedido: number
     idCliente: number
     telefonoExtra: number
     total: number
+    dineroRecibido: number
     notas: string
-    fecha: string
+    idDireccion: number
     finalizado: number
     constructor() {
-        this.idPedido = 0
         this.idCliente = 0
         this.telefonoExtra = 0
+        this.dineroRecibido = 0
         this.total = 0
         this.notas = ''
-        this.fecha = ''
+        this.idDireccion = 0
         this.finalizado = 0
     }
 }
