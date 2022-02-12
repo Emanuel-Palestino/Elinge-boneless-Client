@@ -40,23 +40,6 @@ export class ClienteService {
     })
   }
 
-  //Hacer Pedido
-  async realizarPedido(idCliente:number,pedidoCont: ContenidoPedido,pedido:Pedido): Promise<void> {
-    pedido.idCliente=idCliente;
-    let pedidoRealizado= Object.assign(pedido, pedidoCont);
-    await this.http.post(`${environment.API_URI}/realizarPedido`,pedidoRealizado,).toPromise()
-      .then(res => {
-        console.log("Pedido Realizado")
-      })
-      .catch(error => {
-        console.error(error)
-      })
-
-    return new Promise<void>((resolve, reject) => {
-      return resolve()
-    })
-  }
-  
   async obtenerInformacion(id: Number): Promise<Cliente> {
     let cliente: Cliente = new Cliente()
 
