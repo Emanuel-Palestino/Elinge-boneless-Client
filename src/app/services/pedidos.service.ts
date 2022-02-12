@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ContenidoPedido } from '../models/ContenidoPedido.model';
 import { Pedido } from '../models/Pedido.model';
+import { PedidoCompleto } from '../models/PedidoCompleto.model';
 
 @Injectable({
   providedIn: 'root'
@@ -28,19 +29,19 @@ export class PedidosService {
     })
   }
 
-  async obtenerInformacionPedidosPorCliente(idCliente: number): Promise<any> {
+  async obtenerInformacionPedidosPorCliente(idCliente: number): Promise<PedidoCompleto[]> {
 
-    let contenido: any
+    let contenido: PedidoCompleto[]
     await this.http.get(`${environment.API_URI}/pedidos/cliente/pedidosCompletos/${idCliente}`).toPromise()
-    .then(res => {
-      contenido = res
-      console.log("Obtención de Pedidos Completa")
-    })
-    .catch(error => {
-      console.error(error)
-    })
+      .then((res: any) => {
+        contenido = res
+        console.log("Obtención de Pedidos Completa", res)
+      })
+      .catch(error => {
+        console.error(error)
+      })
 
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<PedidoCompleto[]>((resolve, reject) => {
       return resolve(contenido)
     })
   }

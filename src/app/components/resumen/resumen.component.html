@@ -7,22 +7,35 @@
 		<h4>Pedidos</h4>
 		<div class="contenedor-tabla">
 			<table class="striped responsive-table">
-				<tr>
-					<th>Fecha</th>
-					<th>Detalle Pedido</th>
-					<th>Notas</th>
-					<th>Total</th>
-					<th>Dirección</th>
-					<th>Estado</th>
-				</tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				<thead>
+					<tr>
+						<th>Fecha</th>
+						<th>Detalle Pedido</th>
+						<th>Notas</th>
+						<th>Total</th>
+						<th>Dirección</th>
+						<th>Estado</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<tr *ngFor="let pedido of pedidos">
+						<td>{{pedido.fecha}}</td>
+						<td>
+							<a class="btn-floating botonCustom" style="height: 40px;">
+								<i class="material-icons">visibility</i>
+							</a>
+						</td>
+						<td>{{pedido.notas}}</td>
+						<td>${{pedido.total}}</td>
+						<td>
+							<a class="btn-floating botonCustom" style="height: 40px;">
+								<i class="material-icons">visibility</i>
+							</a>
+						</td>
+						<td>{{pedido.finalizado == 0 ? 'En Preparación' : 'Entregado'}}</td>
+					</tr>
+				</tbody>
 			</table>
 		</div>
 	</div>
