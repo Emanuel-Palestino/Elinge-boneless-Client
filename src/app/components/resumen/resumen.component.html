@@ -11,7 +11,6 @@
 					<tr>
 						<th>Fecha</th>
 						<th>Detalle Pedido</th>
-						<th>Notas</th>
 						<th>Total</th>
 						<th>Dirección</th>
 						<th>Estado</th>
@@ -19,17 +18,18 @@
 				</thead>
 
 				<tbody>
-					<tr *ngFor="let pedido of pedidos">
+					<tr *ngFor="let pedido of pedidos; let i = index">
 						<td>{{pedido.fecha}}</td>
 						<td>
-							<a class="btn-floating botonCustom" style="height: 40px;">
+							<a class="btn-floating botonCustom modal-trigger" href="#detalle_pedido"
+								style="height: 40px;" (click)="actualizarIndex(i)">
 								<i class="material-icons">visibility</i>
 							</a>
 						</td>
-						<td>{{pedido.notas}}</td>
 						<td>${{pedido.total}}</td>
 						<td>
-							<a class="btn-floating botonCustom" style="height: 40px;">
+							<a class="btn-floating botonCustom modal-trigger" href="#detalle_direccion"
+								style="height: 40px;" (click)="actualizarIndex(i)">
 								<i class="material-icons">visibility</i>
 							</a>
 						</td>
@@ -38,5 +38,70 @@
 				</tbody>
 			</table>
 		</div>
+	</div>
+</div>
+
+<div id="detalle_pedido" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle del Pedido</h4>
+		<div>
+			<label>Cantidad de Boneless</label>
+			<div class="customInput">
+				<input class="browser-default" type="number" name="total" readonly
+					[value]="indexInformacion != -1 ? pedidos[indexInformacion].cantidadBoneless : 0">
+				<i class="material-icons prefix">restaurant</i>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+<div id="detalle_direccion" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle de la Dirección</h4>
+		<div class="row">
+			<!-- DATOS DE DIRECCION -->
+			<label>Calle</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacion != -1 ? pedidos[indexInformacion].calle : ''"  readonly>
+				<i class="material-icons prefix">location_on</i>
+			</div>
+
+			<label class="cI-siguiente">Número Exterior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacion != -1 ? pedidos[indexInformacion].numeroExterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Número Interior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacion != -1 ? pedidos[indexInformacion].numeroInterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Colonia</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacion != -1 ? pedidos[indexInformacion].colonia : ''" readonly>
+				<i class="material-icons prefix">explore</i>
+			</div>
+
+			<label class="cI-siguiente">Referencias</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacion != -1 ? pedidos[indexInformacion].referencia : ''}}</textarea>
+				<i class="material-icons prefix">map</i>
+			</div>
+
+			<label class="cI-siguiente">Notas</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacion != -1 ? pedidos[indexInformacion].notas : ''}}</textarea>
+				<i class="material-icons prefix">notes</i>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
 	</div>
 </div>

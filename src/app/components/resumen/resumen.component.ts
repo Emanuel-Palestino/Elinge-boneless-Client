@@ -13,10 +13,12 @@ export class ResumenComponent implements OnInit {
 
   cliente: Cliente
   pedidos: PedidoCompleto[]
+  indexInformacion: number
 
   constructor(private clienteService: ClienteService, private pedidosService: PedidosService) {
     this.cliente = new Cliente()
     this.pedidos = []
+    this.indexInformacion = -1
   }
 
   ngOnInit(): void {
@@ -37,7 +39,10 @@ export class ResumenComponent implements OnInit {
       .catch(err => {
         console.error(err)
       })
-  
+  }
+
+  actualizarIndex(i: number): void {
+    this.indexInformacion = i
   }
 
 }
