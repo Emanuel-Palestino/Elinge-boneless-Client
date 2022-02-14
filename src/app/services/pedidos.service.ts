@@ -46,10 +46,10 @@ export class PedidosService {
     })
   }
 
-  async obtenerInformacionPedidosPendientes(): Promise<PedidoCompleto[]> {
+  async obtenerInformacionPedidosNoFinalizados(): Promise<PedidoCompleto[]> {
 
     let contenido: PedidoCompleto[]
-    await this.http.get(`${environment.API_URI}/pedidos/cliente/pedidosCompletos/noFinalizados`).toPromise()
+    await this.http.get(`${environment.API_URI}/pedidos/pedidosCompletos/noFinalizados`).toPromise()
       .then((res: any) => {
         contenido = res
         console.log("Obtención de Pedidos No Finalizados Completa", res)
@@ -66,7 +66,7 @@ export class PedidosService {
   async obtenerInformacionPedidosFinalizados(): Promise<PedidoCompleto[]> {
 
     let contenido: PedidoCompleto[]
-    await this.http.get(`${environment.API_URI}/pedidos/cliente/pedidosCompletos/finalizados`).toPromise()
+    await this.http.get(`${environment.API_URI}/pedidos/pedidosCompletos/finalizados`).toPromise()
       .then((res: any) => {
         contenido = res
         console.log("Obtención de Pedidos Finalizados Completa", res)

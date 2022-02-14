@@ -15,7 +15,6 @@
 								<tr>
 									<th>Fecha</th>
 									<th>Detalle Pedido</th>
-									<th>Notas</th>
 									<th>Total</th>
 									<th>Dinero a Recibir</th>
 									<th>Cambio</th>
@@ -25,15 +24,24 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+								<tr *ngFor="let pedido of pedidosNoFinalizados; let i = index">
+									<td>{{pedido.fecha}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger" href="#detalle_pedido_no_finalizado"
+											style="height: 40px;" (click)="actualizarIndexNoFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
+									<td>${{pedido.total}}</td>
+									<td>${{pedido.dineroRecibido}}</td>
+									<td>${{pedido.dineroRecibido - pedido.total}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger" href="#detalle_direccion_no_finalizado"
+											style="height: 40px;" (click)="actualizarIndexNoFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
+									<td>{{pedido.finalizado == 0 ? 'En Preparación' : 'Entregado'}}</td>
 								</tr>
 							</tbody>
 						</table>
@@ -50,7 +58,6 @@
 								<tr>
 									<th>Fecha</th>
 									<th>Detalle Pedido</th>
-									<th>Notas</th>
 									<th>Total</th>
 									<th>Dinero a Recibir</th>
 									<th>Dirección</th>
@@ -58,13 +65,23 @@
 							</thead>
 
 							<tbody>
-								<tr>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
-									<td></td>
+								<tr *ngFor="let pedido of pedidosFinalizados; let i = index">
+									<td>{{pedido.fecha}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger" href="#detalle_pedido_finalizado"
+											style="height: 40px;" (click)="actualizarIndexFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
+									<td>${{pedido.total}}</td>
+									<td>${{pedido.dineroRecibido}}</td>
+									<td>${{pedido.dineroRecibido - pedido.total}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger" href="#detalle_direccion_finalizado"
+											style="height: 40px;" (click)="actualizarIndexFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -77,4 +94,137 @@
 	</section>
 
 </div>
+
+<!-- MODALES PEDIDOS NO FINALIZADOS-->
+<div id="detalle_pedido_no_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle del Pedido</h4>
+		<div>
+			<label>Cantidad de Boneless</label>
+			<div class="customInput">
+				<input class="browser-default" type="number" name="total" readonly
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].cantidadBoneless : 0">
+				<i class="material-icons prefix">restaurant</i>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+<div id="detalle_direccion_no_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle de la Dirección</h4>
+		<div class="row">
+			<!-- DATOS DE DIRECCION -->
+			<label>Calle</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].calle : ''"  readonly>
+				<i class="material-icons prefix">location_on</i>
+			</div>
+
+			<label class="cI-siguiente">Número Exterior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroExterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Número Interior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroInterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Colonia</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].colonia : ''" readonly>
+				<i class="material-icons prefix">explore</i>
+			</div>
+
+			<label class="cI-siguiente">Referencias</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].referencia : ''}}</textarea>
+				<i class="material-icons prefix">map</i>
+			</div>
+
+			<label class="cI-siguiente">Notas</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].notas : ''}}</textarea>
+				<i class="material-icons prefix">notes</i>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+<!-- MODALES PEDIDOS FINALIZADOS -->
+<div id="detalle_pedido_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle del Pedido</h4>
+		<div>
+			<label>Cantidad de Boneless</label>
+			<div class="customInput">
+				<input class="browser-default" type="number" name="total" readonly
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].cantidadBoneless : 0">
+				<i class="material-icons prefix">restaurant</i>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+<div id="detalle_direccion_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle de la Dirección</h4>
+		<div class="row">
+			<!-- DATOS DE DIRECCION -->
+			<label>Calle</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].calle : ''"  readonly>
+				<i class="material-icons prefix">location_on</i>
+			</div>
+
+			<label class="cI-siguiente">Número Exterior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroExterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Número Interior</label>
+			<div class="col s6 customInput">
+				<input class="browser-default" type="number" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroInterior : 0" readonly>
+				<i class="material-icons prefix">tag</i>
+			</div>
+
+			<label class="cI-siguiente">Colonia</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].colonia : ''" readonly>
+				<i class="material-icons prefix">explore</i>
+			</div>
+
+			<label class="cI-siguiente">Referencias</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].referencia : ''}}</textarea>
+				<i class="material-icons prefix">map</i>
+			</div>
+
+			<label class="cI-siguiente">Notas</label>
+			<div class="col s12 customTextArea">
+				<textarea cols="30" rows="5" readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].notas : ''}}</textarea>
+				<i class="material-icons prefix">notes</i>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
 <app-pie-de-pagina></app-pie-de-pagina>

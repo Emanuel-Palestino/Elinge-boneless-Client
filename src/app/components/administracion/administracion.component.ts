@@ -10,12 +10,16 @@ declare var $: any
   styleUrls: ['./administracion.component.css']
 })
 export class AdministracionComponent implements OnInit {
-  pedidos: PedidoCompleto[]
-  indexInformacion: number
+  pedidosNoFinalizados: PedidoCompleto[]
+  pedidosFinalizados: PedidoCompleto[]
+  indexInformacionFinalizados: number
+  indexInformacionNoFinalizados: number
 
   constructor(private router: Router, private pedidosService: PedidosService) { 
-    this.pedidos = []
-    this.indexInformacion = -1
+    this.pedidosNoFinalizados = []
+    this.pedidosFinalizados = []
+    this.indexInformacionFinalizados = -1
+    this.indexInformacionNoFinalizados = -1
   }
 
   ngOnInit(): void {
@@ -23,9 +27,36 @@ export class AdministracionComponent implements OnInit {
       this.router.navigateByUrl('administracion/ingresar')
     $(document).ready(function () {
       $('.collapsible').collapsible()
+      $('.modal').modal()
     });
 
     let id = localStorage.getItem('idCliente')
+    // Obtener información de los pedidos pendientes
+    this.pedidosService.obtenerInformacionPedidosNoFinalizados()
+      .then((res: PedidoCompleto[]) => {
+        this.pedidosNoFinalizados = res
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+    // Obtener información de los pedidos finalizados
+    this.pedidosService.obtenerInformacionPedidosFinalizados()
+      .then((res: PedidoCompleto[]) => {
+        this.pedidosFinalizados = res
+      })
+      .catch(err => {
+        console.error(err)
+      })
+
+  }
+
+  actualizarIndexFinalizados(i: number): void {
+    this.indexInformacionFinalizados = i
+  }
+
+  actualizarIndexNoFinalizados(i: number): void {
+    this.indexInformacionNoFinalizados = i
   }
 
 }

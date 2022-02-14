@@ -3,6 +3,7 @@ import { Cliente } from 'src/app/models/Cliente.model';
 import { PedidoCompleto } from 'src/app/models/PedidoCompleto.model';
 import { ClienteService } from 'src/app/services/cliente.service';
 import { PedidosService } from 'src/app/services/pedidos.service';
+declare var $: any
 
 @Component({
   selector: 'app-resumen',
@@ -22,6 +23,9 @@ export class ResumenComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    $(document).ready(function () {
+      $('.modal').modal();
+    });
     let id = localStorage.getItem('idCliente')
     this.clienteService.obtenerInformacion(Number(id))
       .then(res => {
@@ -30,7 +34,7 @@ export class ResumenComponent implements OnInit {
       .catch(err => {
         console.error(err)
       })
-    
+
     // Obtener infomacion de los pedidos
     this.pedidosService.obtenerInformacionPedidosPorCliente(Number(id))
       .then((res: PedidoCompleto[]) => {
