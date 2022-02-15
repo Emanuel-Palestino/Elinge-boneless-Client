@@ -14,9 +14,13 @@ export class PedidosService {
 
   //Hacer Pedido
   async realizarPedido(idCliente: number, pedidoCont: ContenidoPedido, pedido: Pedido): Promise<void> {
-    pedido.idCliente = idCliente;
-    let pedidoRealizado = Object.assign(pedido, pedidoCont);
-    await this.http.post(`${environment.API_URI}/realizarPedido`, pedidoRealizado,).toPromise()
+    pedido.idCliente = idCliente
+    let pedidoRealizado = {
+      pedido: pedido,
+      contenido_pedido: pedidoCont
+    }
+
+    await this.http.post(`${environment.API_URI}/realizarPedido`, pedidoRealizado).toPromise()
       .then(res => {
         console.log("Pedido Realizado")
       })

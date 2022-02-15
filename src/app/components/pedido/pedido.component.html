@@ -3,14 +3,14 @@
         <h2 class="center-align">Realizar Pedido</h2>
 
         <div class="row">
-            <form ngNativeValidate>
+            <form (ngSubmit)="finalizarPedido()" ngNativeValidate>
 
                 <h5 class="center-align">Información del pedido</h5>
                 <!--Boneless-->
                 <label>Cantidad de Boneless</label>
                 <div class="customInput">
-                    <select name="cantidad-boneless" required>
-                        <option value="" disabled selected>Elige la cantidad</option>
+                    <select [(ngModel)]="contenidoPedido.cantidadBoneless" (change)="calcularTotal()" name="cantidad-boneless" required>
+                        <option value="0" disabled selected>Elige la cantidad</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -29,28 +29,28 @@
                 <div class="row">
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="mangoH"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="contenidoPedido.mangoHabanero" type="checkbox" name="mangoH"/>
                             <span>Mango Habanero</span>
                         </label>
                     </div>
 
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="piñaH"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="pinaHabanero" type="checkbox" name="piñaH"/>
                             <span>Piña Habanero</span>
                         </label>
                     </div>
 
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="bbq"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="contenidoPedido.bbq" type="checkbox" name="bbq"/>
                             <span>BBQ</span>
                         </label>
                     </div>
 
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="bufalo"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="contenidoPedido.bufalo" type="checkbox" name="bufalo"/>
                             <span>Búfalo</span>
                         </label>
                     </div>
@@ -60,8 +60,8 @@
                 <!--Papas-->
                 <label>Ordenes de papas:</label>
                 <div class="customInput">
-                    <select name="cantidad-papas" required>
-                        <option value="" disabled selected>Elige la cantidad</option>
+                    <select (change)="calcularTotal()" [(ngModel)]="contenidoPedido.cantidadPapas" name="cantidad_papas" required>
+                        <option value="0" disabled selected>Elige la cantidad</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -74,14 +74,14 @@
                 <div class="row" style="margin: 0;">
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="especiales"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="contenidoPedido.papasEspeciales" type="checkbox" name="especiales"/>
                             <span>Especiales</span>
                         </label>
                     </div>
 
                     <div class="col l6 m6 s6 customCheck">
                         <label>
-                            <input type="checkbox" name="sencillas"/>
+                            <input (change)="calcularTotal()" [(ngModel)]="contenidoPedido.papasSencillas" type="checkbox" name="sencillas"/>
                             <span>Sencillas</span>
                         </label>
                     </div>
@@ -95,7 +95,7 @@
                 <h5 class="center-align">Envío y Total</h5>
                 <label>Dirección:</label>
                 <div class="customInput">
-                    <select name="direccion" required>
+                    <select [(ngModel)]="pedido.idDireccion" name="direccion" required>
                         <option value="0" disabled selected>Seleccione una de sus direcciones</option>
                         <option *ngFor="let direccion of direcciones" value="{{direccion.idDireccion}}">{{direccion.calle}} #{{direccion.numeroExterior}}</option>
                     </select>
@@ -104,25 +104,25 @@
 
                 <label>Notas:</label>
                 <div class="customTextArea">
-                    <textarea name="notas" cols="30" rows="5" placeholder="Datos extra"></textarea>
+                    <textarea [(ngModel)]="pedido.notas" name="notas" cols="30" rows="5" placeholder="Datos extra"></textarea>
                     <i class="material-icons prefix">notes</i>
                 </div>
 
                 <label>Total del Pedido:</label>
                 <div class="customInput">
-                    <input class="browser-default" type="number" name="total" placeholder="Total" autocomplete="off" readonly>
+                    <input [(ngModel)]="pedido.total" class="browser-default" type="number" name="total" placeholder="Total" autocomplete="off" readonly>
                     <i class="material-icons prefix">attach_money</i>
                 </div>
 
                 <label>Cantidad de dinero con el que pagará:</label>
                 <div class="customInput">
-                    <input class="browser-default" type="number" name="efectivo" placeholder="Efectivo" autocomplete="off" required>
+                    <input [(ngModel)]="pedido.dineroRecibido" class="browser-default" type="number" name="efectivo" placeholder="Efectivo" autocomplete="off" min="{{pedido.total}}" required>
                     <i class="material-icons prefix">local_atm</i>
                 </div>
 
                 <label>Cambio:</label>
                 <div class="customInput">
-                    <input class="browser-default" type="number" name="cambio" placeholder="Cambio" autocomplete="off" readonly>
+                    <input value="{{pedido.dineroRecibido - pedido.total}}" class="browser-default" type="number" name="cambio" placeholder="Cambio" readonly>
                     <i class="material-icons prefix">attach_money</i>
                 </div>
 
