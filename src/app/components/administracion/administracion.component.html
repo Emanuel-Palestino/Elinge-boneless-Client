@@ -6,11 +6,12 @@
 		<h4 style="margin-top: 40px;">Pedidos</h4>
 
 		<ul class="collapsible">
+			<!-- Pedidos no finalizados -->
 			<li class="active">
 				<div class="collapsible-header"><i class="material-icons">schedule</i>Pendientes</div>
 				<div class="collapsible-body">
 					<div class="contenedor-tabla" style="margin-top: 0;">
-						<table class="striped responsibe-table">
+						<table class="striped responsive-table">
 							<thead>
 								<tr>
 									<th>Fecha</th>
@@ -27,8 +28,9 @@
 								<tr *ngFor="let pedido of pedidosNoFinalizados; let i = index">
 									<td>{{pedido.fecha}}</td>
 									<td>
-										<a class="btn-floating botonCustom modal-trigger" href="#detalle_pedido_no_finalizado"
-											style="height: 40px;" (click)="actualizarIndexNoFinalizados(i)">
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_pedido_no_finalizado" style="height: 40px;"
+											(click)="actualizarIndexNoFinalizados(i)">
 											<i class="material-icons">visibility</i>
 										</a>
 									</td>
@@ -36,12 +38,17 @@
 									<td>${{pedido.dineroRecibido}}</td>
 									<td>${{pedido.dineroRecibido - pedido.total}}</td>
 									<td>
-										<a class="btn-floating botonCustom modal-trigger" href="#detalle_direccion_no_finalizado"
-											style="height: 40px;" (click)="actualizarIndexNoFinalizados(i)">
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_direccion_no_finalizado" style="height: 40px;"
+											(click)="actualizarIndexNoFinalizados(i)">
 											<i class="material-icons">visibility</i>
 										</a>
 									</td>
-									<td>{{pedido.finalizado == 0 ? 'En Preparación' : 'Entregado'}}</td>
+									<td>
+										<a class="waves-effect btn botonCustom" style="height: 36px; min-width: 140px;" (click)="finalizarPedido(pedido.idPedido, i)">
+											<i class="material-icons right">done</i>Finalizar
+										</a>
+									</td>
 								</tr>
 							</tbody>
 						</table>
@@ -53,7 +60,7 @@
 				<div class="collapsible-header"><i class="material-icons">done</i>Finalizados</div>
 				<div class="collapsible-body">
 					<div class="contenedor-tabla" style="margin-top: 0;">
-						<table class="striped responsibe-table">
+						<table class="striped responsive-table">
 							<thead>
 								<tr>
 									<th>Fecha</th>
@@ -68,8 +75,9 @@
 								<tr *ngFor="let pedido of pedidosFinalizados; let i = index">
 									<td>{{pedido.fecha}}</td>
 									<td>
-										<a class="btn-floating botonCustom modal-trigger" href="#detalle_pedido_finalizado"
-											style="height: 40px;" (click)="actualizarIndexFinalizados(i)">
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_pedido_finalizado" style="height: 40px;"
+											(click)="actualizarIndexFinalizados(i)">
 											<i class="material-icons">visibility</i>
 										</a>
 									</td>
@@ -77,8 +85,9 @@
 									<td>${{pedido.dineroRecibido}}</td>
 									<td>${{pedido.dineroRecibido - pedido.total}}</td>
 									<td>
-										<a class="btn-floating botonCustom modal-trigger" href="#detalle_direccion_finalizado"
-											style="height: 40px;" (click)="actualizarIndexFinalizados(i)">
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_direccion_finalizado" style="height: 40px;"
+											(click)="actualizarIndexFinalizados(i)">
 											<i class="material-icons">visibility</i>
 										</a>
 									</td>
@@ -120,37 +129,47 @@
 			<!-- DATOS DE DIRECCION -->
 			<label>Calle</label>
 			<div class="col s12 customInput">
-				<input class="browser-default" type="text" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].calle : ''"  readonly>
+				<input class="browser-default" type="text"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].calle : ''"
+					readonly disabled>
 				<i class="material-icons prefix">location_on</i>
 			</div>
 
 			<label class="cI-siguiente">Número Exterior</label>
 			<div class="col s6 customInput">
-				<input class="browser-default" type="number" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroExterior : 0" readonly>
+				<input class="browser-default" type="number"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroExterior : 0"
+					readonly disabled>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
 			<label class="cI-siguiente">Número Interior</label>
 			<div class="col s6 customInput">
-				<input class="browser-default" type="number" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroInterior : 0" readonly>
+				<input class="browser-default" type="number"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroInterior : 0"
+					readonly disabled>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
 			<label class="cI-siguiente">Colonia</label>
 			<div class="col s12 customInput">
-				<input class="browser-default" type="text" [value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].colonia : ''" readonly>
+				<input class="browser-default" type="text"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].colonia : ''"
+					readonly disabled>
 				<i class="material-icons prefix">explore</i>
 			</div>
 
 			<label class="cI-siguiente">Referencias</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].referencia : ''}}</textarea>
+				<textarea cols="30" rows="5" readonly
+					disabled>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].referencia : ''}}</textarea>
 				<i class="material-icons prefix">map</i>
 			</div>
 
 			<label class="cI-siguiente">Notas</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].notas : ''}}</textarea>
+				<textarea cols="30" rows="5" readonly
+					disabled>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].notas : ''}}</textarea>
 				<i class="material-icons prefix">notes</i>
 			</div>
 
@@ -186,37 +205,47 @@
 			<!-- DATOS DE DIRECCION -->
 			<label>Calle</label>
 			<div class="col s12 customInput">
-				<input class="browser-default" type="text" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].calle : ''"  readonly>
+				<input class="browser-default" type="text"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].calle : ''"
+					readonly>
 				<i class="material-icons prefix">location_on</i>
 			</div>
 
 			<label class="cI-siguiente">Número Exterior</label>
 			<div class="col s6 customInput">
-				<input class="browser-default" type="number" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroExterior : 0" readonly>
+				<input class="browser-default" type="number"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroExterior : 0"
+					readonly>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
 			<label class="cI-siguiente">Número Interior</label>
 			<div class="col s6 customInput">
-				<input class="browser-default" type="number" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroInterior : 0" readonly>
+				<input class="browser-default" type="number"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].numeroInterior : 0"
+					readonly>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
 			<label class="cI-siguiente">Colonia</label>
 			<div class="col s12 customInput">
-				<input class="browser-default" type="text" [value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].colonia : ''" readonly>
+				<input class="browser-default" type="text"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].colonia : ''"
+					readonly>
 				<i class="material-icons prefix">explore</i>
 			</div>
 
 			<label class="cI-siguiente">Referencias</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].referencia : ''}}</textarea>
+				<textarea cols="30" rows="5"
+					readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].referencia : ''}}</textarea>
 				<i class="material-icons prefix">map</i>
 			</div>
 
 			<label class="cI-siguiente">Notas</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].notas : ''}}</textarea>
+				<textarea cols="30" rows="5"
+					readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].notas : ''}}</textarea>
 				<i class="material-icons prefix">notes</i>
 			</div>
 

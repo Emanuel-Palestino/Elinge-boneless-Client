@@ -84,4 +84,18 @@ export class PedidosService {
     })
   }
 
+  async marcarFinalizado(idPedido: number): Promise<boolean> {
+    await this.http.get(`${environment.API_URI}/pedidos/finalizarPedido/${idPedido}`).toPromise()
+    .then(res => {
+      console.log('Pedido finalizado Correctamente')
+    })
+    .catch(err => {
+      console.error(err)
+    })
+
+    return new Promise<boolean>((resolve, reject) => {
+      return resolve(true)
+    })
+  }
+
 }

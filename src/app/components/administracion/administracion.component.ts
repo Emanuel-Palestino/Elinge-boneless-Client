@@ -15,7 +15,7 @@ export class AdministracionComponent implements OnInit {
   indexInformacionFinalizados: number
   indexInformacionNoFinalizados: number
 
-  constructor(private router: Router, private pedidosService: PedidosService) { 
+  constructor(private router: Router, private pedidosService: PedidosService) {
     this.pedidosNoFinalizados = []
     this.pedidosFinalizados = []
     this.indexInformacionFinalizados = -1
@@ -57,6 +57,18 @@ export class AdministracionComponent implements OnInit {
 
   actualizarIndexNoFinalizados(i: number): void {
     this.indexInformacionNoFinalizados = i
+  }
+
+  finalizarPedido(idPedido: number, index: number): void {
+    // Actualizar la base de datos
+    this.pedidosService.marcarFinalizado(idPedido)
+      .then(res => {
+        // Eliminar el pedido de los no finalizados y agregarlos a los finalizados
+        this.pedidosFinalizados.unshift(this.pedidosNoFinalizados.splice(index, 1)[0])
+      })
+      .catch(err => {
+        console.error(err)
+      })
   }
 
 }
