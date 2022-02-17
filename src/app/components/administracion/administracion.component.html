@@ -15,6 +15,7 @@
 							<thead>
 								<tr>
 									<th>Fecha</th>
+									<th>Cliente</th>
 									<th>Detalle Pedido</th>
 									<th>Total</th>
 									<th>Dinero a Recibir</th>
@@ -27,6 +28,13 @@
 							<tbody>
 								<tr *ngFor="let pedido of pedidosNoFinalizados; let i = index">
 									<td>{{pedido.fecha}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_cliente_no_finalizado" style="height: 40px;"
+											(click)="actualizarIndexNoFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
 									<td>
 										<a class="btn-floating botonCustom modal-trigger"
 											href="#detalle_pedido_no_finalizado" style="height: 40px;"
@@ -67,6 +75,7 @@
 							<thead>
 								<tr>
 									<th>Fecha</th>
+									<th>Cliente</th>
 									<th>Detalle Pedido</th>
 									<th>Total</th>
 									<th>Dinero a Recibir</th>
@@ -78,6 +87,13 @@
 							<tbody>
 								<tr *ngFor="let pedido of pedidosFinalizados; let i = index">
 									<td>{{pedido.fecha}}</td>
+									<td>
+										<a class="btn-floating botonCustom modal-trigger"
+											href="#detalle_cliente_finalizado" style="height: 40px;"
+											(click)="actualizarIndexFinalizados(i)">
+											<i class="material-icons">visibility</i>
+										</a>
+									</td>
 									<td>
 										<a class="btn-floating botonCustom modal-trigger"
 											href="#detalle_pedido_finalizado" style="height: 40px;"
@@ -255,6 +271,43 @@
 	</div>
 </div>
 
+<div id="detalle_cliente_no_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle del Cliente</h4>
+		<div class="row">
+
+			<!-- DATOS DEL CLIENTE -->
+			<label>Nombres</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].nombre : ''"
+					disabled>
+				<i class="material-icons prefix">person</i>
+			</div>
+
+			<label class="cI-siguiente">Apellidos</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].apellidos : ''"
+					disabled>
+				<i class="material-icons prefix">person</i>
+			</div>
+
+			<label>Teléfono</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].telefono : ''"
+					disabled>
+				<i class="material-icons prefix">phone</i>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
 <!-- MODALES PEDIDOS FINALIZADOS -->
 <div id="detalle_pedido_finalizado" class="modal modal-fixed-footer">
 	<div class="modal-content">
@@ -393,6 +446,43 @@
 				<textarea cols="30" rows="5"
 					readonly>{{indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].notas : ''}}</textarea>
 				<i class="material-icons prefix">notes</i>
+			</div>
+
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a class="modal-close waves-effect waves-green btn-flat">Cerrar</a>
+	</div>
+</div>
+
+<div id="detalle_cliente_finalizado" class="modal modal-fixed-footer">
+	<div class="modal-content">
+		<h4>Detalle del Cliente</h4>
+		<div class="row">
+
+			<!-- DATOS DEL CLIENTE -->
+			<label>Nombres</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].nombre : ''"
+					disabled>
+				<i class="material-icons prefix">person</i>
+			</div>
+
+			<label class="cI-siguiente">Apellidos</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].apellidos : ''"
+					disabled>
+				<i class="material-icons prefix">person</i>
+			</div>
+
+			<label>Teléfono</label>
+			<div class="col s12 customInput">
+				<input class="browser-default" type="text"
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].telefono : ''"
+					disabled>
+				<i class="material-icons prefix">phone</i>
 			</div>
 
 		</div>

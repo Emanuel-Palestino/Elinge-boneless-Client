@@ -23,6 +23,9 @@ export class PedidoCompleto {
 	piñaHabanero: number
 	papasEspeciales: number
 	papasSencillas: number
+	nombre: string
+	apellidos: string
+	telefono: string
 
 	constructor() {
 		this.idPedido = 0
@@ -49,5 +52,8 @@ export class PedidoCompleto {
 		this.piñaHabanero = 0
 		this.papasEspeciales = 0
 		this.papasSencillas = 0
+		this.nombre = ''
+		this.apellidos = ''
+		this.telefono = ''
 	}
 }
