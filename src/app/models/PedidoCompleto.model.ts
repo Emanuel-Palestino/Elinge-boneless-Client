@@ -22,6 +22,7 @@ export class PedidoCompleto {
 	bufalo: number
 	piñaHabanero: number
 	papasEspeciales: number
+	papasSencillas: number
 
 	constructor() {
 		this.idPedido = 0
@@ -47,5 +48,6 @@ export class PedidoCompleto {
 		this.bufalo = 0
 		this.piñaHabanero = 0
 		this.papasEspeciales = 0
+		this.papasSencillas = 0
 	}
 }

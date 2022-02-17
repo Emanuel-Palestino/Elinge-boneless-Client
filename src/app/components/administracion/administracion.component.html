@@ -6,7 +6,7 @@
 		<h4 style="margin-top: 40px;">Pedidos</h4>
 
 		<ul class="collapsible">
-			<!-- Pedidos no finalizados -->
+			<!-- Pedidos no Finalizados -->
 			<li class="active">
 				<div class="collapsible-header"><i class="material-icons">schedule</i>Pendientes</div>
 				<div class="collapsible-body">
@@ -45,7 +45,8 @@
 										</a>
 									</td>
 									<td>
-										<a class="waves-effect btn botonCustom" style="height: 36px; min-width: 140px;" (click)="finalizarPedido(pedido.idPedido, i)">
+										<a class="waves-effect btn botonCustom" style="height: 36px; min-width: 140px;"
+											(click)="finalizarPedido(pedido.idPedido, i)">
 											<i class="material-icons right">done</i>Finalizar
 										</a>
 									</td>
@@ -56,6 +57,8 @@
 
 				</div>
 			</li>
+
+			<!-- Pedidos Finalizados -->
 			<li>
 				<div class="collapsible-header"><i class="material-icons">done</i>Finalizados</div>
 				<div class="collapsible-body">
@@ -67,6 +70,7 @@
 									<th>Detalle Pedido</th>
 									<th>Total</th>
 									<th>Dinero a Recibir</th>
+									<th>Cambio</th>
 									<th>Dirección</th>
 								</tr>
 							</thead>
@@ -108,13 +112,84 @@
 <div id="detalle_pedido_no_finalizado" class="modal modal-fixed-footer">
 	<div class="modal-content">
 		<h4>Detalle del Pedido</h4>
+
+		<!-- Contenido -->
 		<div>
+
 			<label>Cantidad de Boneless</label>
 			<div class="customInput">
-				<input class="browser-default" type="number" name="total" readonly
+				<input class="browser-default" type="number" name="total" disabled
 					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].cantidadBoneless : 0">
 				<i class="material-icons prefix">restaurant</i>
 			</div>
+
+			<label>Sabores:</label>
+			<div class="row">
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox" name="mangoHabanero"
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados].mangoHabanero == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Mango Habanero</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados]['piñaHabanero'] == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Piña Habanero</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados].bbq == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>BBQ</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados].bufalo == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Búfalo</span>
+					</label>
+				</div>
+			</div>
+
+			<label>Ordenes de Papas</label>
+			<div class="customInput">
+				<input type="number" class="browser-default" disabled
+					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].cantidadPapas : 0">
+				<i class="material-icons prefix">restaurant</i>
+			</div>
+
+			<label class="cI-siguiente">Tipo de Papas</label>
+			<div class="row">
+				<div class="col l6 m6 s6 customCheck">
+					<label>
+						<input
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados].papasEspeciales == 1 ? true : null) : null"
+							type="checkbox" disabled />
+						<span>Especiales</span>
+					</label>
+				</div>
+
+				<div class="col l6 m6 s6 customCheck">
+					<label>
+						<input
+							[attr.checked]="indexInformacionNoFinalizados != -1 ? (pedidosNoFinalizados[indexInformacionNoFinalizados].papasSencillas == 1 ? true : null) : null"
+							type="checkbox" disabled />
+						<span>Sencillas</span>
+					</label>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<div class="modal-footer">
@@ -131,7 +206,7 @@
 			<div class="col s12 customInput">
 				<input class="browser-default" type="text"
 					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].calle : ''"
-					readonly disabled>
+					disabled>
 				<i class="material-icons prefix">location_on</i>
 			</div>
 
@@ -139,7 +214,7 @@
 			<div class="col s6 customInput">
 				<input class="browser-default" type="number"
 					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroExterior : 0"
-					readonly disabled>
+					disabled>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
@@ -147,7 +222,7 @@
 			<div class="col s6 customInput">
 				<input class="browser-default" type="number"
 					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].numeroInterior : 0"
-					readonly disabled>
+					disabled>
 				<i class="material-icons prefix">tag</i>
 			</div>
 
@@ -155,20 +230,20 @@
 			<div class="col s12 customInput">
 				<input class="browser-default" type="text"
 					[value]="indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].colonia : ''"
-					readonly disabled>
+					disabled>
 				<i class="material-icons prefix">explore</i>
 			</div>
 
 			<label class="cI-siguiente">Referencias</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly
+				<textarea cols="30" rows="5"
 					disabled>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].referencia : ''}}</textarea>
 				<i class="material-icons prefix">map</i>
 			</div>
 
 			<label class="cI-siguiente">Notas</label>
 			<div class="col s12 customTextArea">
-				<textarea cols="30" rows="5" readonly
+				<textarea cols="30" rows="5"
 					disabled>{{indexInformacionNoFinalizados != -1 ? pedidosNoFinalizados[indexInformacionNoFinalizados].notas : ''}}</textarea>
 				<i class="material-icons prefix">notes</i>
 			</div>
@@ -184,13 +259,84 @@
 <div id="detalle_pedido_finalizado" class="modal modal-fixed-footer">
 	<div class="modal-content">
 		<h4>Detalle del Pedido</h4>
+
+		<!-- Contenido -->
 		<div>
+
 			<label>Cantidad de Boneless</label>
 			<div class="customInput">
-				<input class="browser-default" type="number" name="total" readonly
+				<input class="browser-default" type="number" name="total" disabled
 					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].cantidadBoneless : 0">
 				<i class="material-icons prefix">restaurant</i>
 			</div>
+
+			<label>Sabores:</label>
+			<div class="row">
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox" name="mangoHabanero"
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados].mangoHabanero == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Mango Habanero</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados]['piñaHabanero'] == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Piña Habanero</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados].bbq == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>BBQ</span>
+					</label>
+				</div>
+
+				<div class="col s6 customCheck">
+					<label>
+						<input type="checkbox"
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados].bufalo == 1 ? true : null) : null"
+							disabled="disabled">
+						<span>Búfalo</span>
+					</label>
+				</div>
+			</div>
+
+			<label>Ordenes de Papas</label>
+			<div class="customInput">
+				<input type="number" class="browser-default" disabled
+					[value]="indexInformacionFinalizados != -1 ? pedidosFinalizados[indexInformacionFinalizados].cantidadPapas : 0">
+				<i class="material-icons prefix">restaurant</i>
+			</div>
+
+			<label class="cI-siguiente">Tipo de Papas</label>
+			<div class="row">
+				<div class="col l6 m6 s6 customCheck">
+					<label>
+						<input
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados].papasEspeciales == 1 ? true : null) : null"
+							type="checkbox" disabled />
+						<span>Especiales</span>
+					</label>
+				</div>
+
+				<div class="col l6 m6 s6 customCheck">
+					<label>
+						<input
+							[attr.checked]="indexInformacionFinalizados != -1 ? (pedidosFinalizados[indexInformacionFinalizados].papasSencillas == 1 ? true : null) : null"
+							type="checkbox" disabled />
+						<span>Sencillas</span>
+					</label>
+				</div>
+			</div>
+
 		</div>
 	</div>
 	<div class="modal-footer">
