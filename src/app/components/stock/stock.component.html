@@ -7,7 +7,7 @@
 		</div>
 
 		<div class="col m8 s12 customInput">
-			<input type="number" name="boneless" id="boneless" class="browser-default" disabled>
+			<input type="number" [(ngModel)]="stock.kilosBoneless" id="kilosBoneless" class="browser-default" disabled>
 		</div>
 
 		<div class="col m4 s12 label-inline">
@@ -15,8 +15,12 @@
 		</div>
 
 		<div class="col m8 s12 customInput">
-			<input type="number" name="papas" id="papas" class="browser-default" disabled>
+			<input type="number" [(ngModel)]="stock.kilosPapas" id="kilosPapas" class="browser-default" disabled>
 		</div>
+
+		<a id="btnEditar" class="btn botonCustom botonSmall" (click)="editarStock()">Editar</a>
+		<a id="btnCancelar" class="btn botonCustom botonSmall" (click)="cancelarEdicion()">Cancelar</a>
+		<a id="btnGuardar" class="btn botonCustom botonSmall" (click)="guardarStock()">Guardar</a>
 	</section>
 </div>
 <app-pie-de-pagina></app-pie-de-pagina>
